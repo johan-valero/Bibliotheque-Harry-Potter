@@ -24,11 +24,14 @@ class Livre():
               f"Retour : {self.retour}"
              )
 
-    def RefLivre(titre, auteur):     
-        titre = titre.upper()
-        auteur = auteur.upper()
+    def RefLivre(self):     
+        titre = self.titre.upper()
+        auteur = self.auteur.upper()
+        rand =""
         for n in range (6):
-            random.randint(1, 9)
-            Ref = f"{titre[0]}{auteur[0]}{n}"
+            alea = random.randint(1, 9)
+            rand.append(alea)
+        Ref = titre[0] + auteur[0] + rand
         return Ref
+
 
