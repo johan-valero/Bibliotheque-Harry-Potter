@@ -61,14 +61,14 @@ class Bibliotheque:
     def ImporterLivre(self):
         with open("Livresinscrits.txt", 'r') as f:
             for i in self.self.livres:
-                self.self.livres.append(i)
+                self.livres.append(i)
 
     def AfficherLivre(self):
         for i in self.livres:
             return i
 
 
-use = Bibliotheque("bro")
-use.InscriptionUser("broa")
-use.CreerFichierUser()
-print(use)
+# use = Bibliotheque("bro")
+# use.InscriptionUser("broa")
+# use.CreerFichierUser()
+# print(use)
