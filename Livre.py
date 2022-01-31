@@ -1,5 +1,5 @@
 from datetime import date
-
+import random
 
 class Livre():
 
@@ -24,4 +24,11 @@ class Livre():
               f"Retour : {self.retour}"
              )
 
+    def RefLivre(titre, auteur):     
+        titre = titre.upper()
+        auteur = auteur.upper()
+        for n in range (6):
+            random.randint(1, 9)
+            Ref = f"{titre[0]}{auteur[0]}{n}"
+        return Ref
 
