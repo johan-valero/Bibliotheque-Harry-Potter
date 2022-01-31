@@ -13,10 +13,10 @@ def clear():
 
 def menu1():
     clear()
-    print("1 - S'identifier\n"
+    print("Que voulez-vous faire ?\n"
+          "1 - S'identifier\n"
           "2 - Créer un compte\n"
-          "3 - Quitter l'application\n"
-          "\nQue voulez-vous faire ?")
+          "3 - Quitter l'application\n")
 
 def menu2():
     clear()
@@ -25,8 +25,7 @@ def menu2():
           "2 - Emprunter\n"
           "3 - Rendre\n"
           "4 - Changer mot de passe\n"
-          "5 - Déconnexion\n"
-          "\nQue voulez-vous faire ?")
+          "5 - Déconnexion\n")
 
 ##################
 # Gestion erreur #
