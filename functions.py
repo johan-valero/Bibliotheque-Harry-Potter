@@ -5,7 +5,9 @@ from Personne import *
 from User import *
 from functions import *
 
-# Display
+###########
+# Display #
+###########
 def clear():
     print("\033[H\033[J", end="")
 
@@ -13,7 +15,8 @@ def menu1():
     clear()
     print("1 - S'identifier\n"
           "2 - Créer un compte\n"
-          "3 - Quitter l'application")
+          "3 - Quitter l'application\n"
+          "\nQue voulez-vous faire ?")
 
 def menu2():
     clear()
@@ -22,9 +25,12 @@ def menu2():
           "2 - Emprunter\n"
           "3 - Rendre\n"
           "4 - Changer mot de passe\n"
-          "5 - Déconnexion")
+          "5 - Déconnexion\n"
+          "\nQue voulez-vous faire ?")
 
-# Gestion erreur
+##################
+# Gestion erreur #
+##################
 def check_int(data):
     check = False
     try:
@@ -36,7 +42,9 @@ def check_int(data):
     finally:
         return check
 
-# Check in Classe
+###################
+# Check in Classe #
+###################
 def check_user(identifiant):
     check = False
     for i in bibliotheque.user_liste:
