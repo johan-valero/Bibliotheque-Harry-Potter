@@ -11,6 +11,7 @@ input("------------------------------------------------\n")
 
 # Bibliotheque.ImporterLivre()
 # Bibliotheque.ImporterUsers()
+poney_fringuant =  Bibliotheque("poney_fringuant")
 
 while True:
     # ###### #
@@ -36,9 +37,9 @@ while True:
                 identification = False
                 break
             
-            if check_user(identifiant):
+            if check_user(poney_fringuant, identifiant):
                 mdp = input("Veuillez rentrer votre mot de passe :\n> ")
-                if check_user_mdp(identifiant, mdp):
+                if check_user_mdp(poney_fringuant, identifiant, mdp):
                     clear()
                     print("-------------------\n"
                           "Connexion réussie !")
@@ -47,7 +48,7 @@ while True:
                     identification = False
                     break
                 
-                elif not check_user_mdp(identifiant, mdp):
+                elif not check_user_mdp(poney_fringuant, identifiant, mdp):
                     print("Erreur, veuillez réessayer")
                     identification = False
                     break

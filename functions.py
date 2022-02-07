@@ -44,14 +44,14 @@ def check_int(data):
 ###################
 # Check in Classe #
 ###################
-def check_user(identifiant):
+def check_user(bibliotheque, identifiant):
     check = False
     for i in bibliotheque.user_liste:
         if i.nom == identifiant:
             check = True
     return check
 
-def check_user_mdp(identifiant, mdp):
+def check_user_mdp(bibliotheque, identifiant, mdp):
     check = False
     for i in bibliotheque.user_liste:
         if i.nom == identifiant and i.mdp == mdp:
