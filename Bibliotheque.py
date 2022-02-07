@@ -177,3 +177,7 @@ class Bibliotheque:
     indexLivre = user.emprunts.index(livre)
 
     del user.emprunts[indexLivre]
+
+  def __repr__(self):
+    return str(f"[{self.nom}, Catégories : {len(self.rayons)},Livres : {len(self.livres)}, Utilisateurs : {len(self.liste_users)} ]")
+    

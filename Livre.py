@@ -27,3 +27,6 @@ class Livre():
     auteur = self.auteur.upper()
     nombre = random.randint(100000, 999999)
     self.ref = titre[0] + auteur[0] + str(nombre)
+
+  def __repr__(self):
+    return str(f"[{self.titre}, {self.auteur}, {self.categorie}, {self.ref}, {self.dispo}]")
