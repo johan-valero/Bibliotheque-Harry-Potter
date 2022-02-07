@@ -4,3 +4,7 @@ class Personne:
     self.nom = nom
     self.prenom = prenom
     self.mdp = mdp
+    
+def IdUser(nom, prenom):
+    Id = str(nom[0]+"."+prenom)
+    return Id
