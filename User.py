@@ -14,7 +14,7 @@ class User(Personne):
         return str(f"[{self.nom}, {self.prenom}, {self.mdp}, {self.emprunts}, {self.grade}]")
 
     def AfficherEmprunts(self, bibliotheque):
-      print("Vous avez", len(self.emprunts), "en cours :")
+      print("Vous avez", len(self.emprunts), "emprunt(s) en cours :")
       j = 0
       for i in self.emprunts:
         j += 1
