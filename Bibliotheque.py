@@ -1,5 +1,5 @@
-from classes.User import User
-from classes.Livre import Livre
+from User import User
+from Livre import Livre
 from datetime import date, timedelta
 
 class Bibliotheque:

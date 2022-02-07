@@ -1,4 +1,4 @@
-from classes.Livre import Livre
+from Livre import Livre
 
 class BD(Livre):
   def __init__(self, titre, auteur, langue, genre, categorie, ref, dispo):
