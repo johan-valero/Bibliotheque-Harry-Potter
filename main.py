@@ -9,9 +9,9 @@ print("------------------------------------------------\n"
       "Bienvenue sur la banque en ligne de la culture !")
 input("------------------------------------------------\n")
 
-# Bibliotheque.ImporterLivre()
-# Bibliotheque.ImporterUsers()
 poney_fringuant =  Bibliotheque("poney_fringuant")
+poney_fringuant.ImporterLivre()
+poney_fringuant.ImporterUsers()
 
 while True:
     # ###### #
@@ -141,12 +141,15 @@ while True:
         nom = input("Veuillez renseigner votre nom\n> ")
         prenom = input("Veuillez renseigner votre prénom\n> ")
         mdp = input("Veuillez renseigner votre mot de passe\n> ")
+        while len(mdp) < 5:
+            print("Votre mot de passe est trop court, veuillez entrer un mot de passe de minimum 5 caractères.")
+            mdp = input("> ")
         user = User(nom, prenom, mdp)
         input("Votre compte a été crée avec succès !")
 
     # Menu 1 : 3 - quitter Application
     elif choix_menu_1 == "3":
-        Bibliotheque.ExporterLivre()
-        Bibliotheque.ExporterUser()
+        poney_fringuant.ExporterLivre()
+        poney_fringuant.ExporterUser()
         input("Bonne journée !")
         break
