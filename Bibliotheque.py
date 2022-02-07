@@ -5,12 +5,12 @@ from datetime import date, timedelta
 class Bibliotheque:
   def __init__(self, nom):
     self.nom = nom
-    self.rayons = []
-    self.auteurs = []
-    self.livres = []
-    self.liste_users = []
+    self.rayon_liste = []
+    self.auteur_liste = []
+    self.livre_liste = []
+    self.user_liste = []
 
-  def ImporterLivres(self):
+  def ImporterLivre(self):
     file = open("database/livres.txt", mode='r', encoding="utf-8")
     for line in file.readlines():
       splitLine = line.split(' ; ')
@@ -29,15 +29,15 @@ class Bibliotheque:
       livre.ref = ref
       livre.retour = retour
 
-      if auteur not in self.auteurs:
-        self.auteurs.append(auteur)
+      if auteur not in self.auteur_liste:
+        self.auteur_liste.append(auteur)
 
-      if categorie not in self.rayons:
-        self.rayons.append(categorie)
+      if categorie not in self.rayon_liste:
+        self.rayon_liste.append(categorie)
 
-      self.livres.append(livre)
+      self.livre_liste.append(livre)
 
-  def ImporterUsers(self):
+  def ImporterUser(self):
     usersFile = open("database/utilisateurs.txt", mode='r', encoding="utf-8")
     empruntsFile = open("database/emprunts.txt", mode='r', encoding="utf-8")
 
@@ -52,7 +52,7 @@ class Bibliotheque:
 
       user = User(nom, prenom, mdp, emprunts, grade)
 
-      self.liste_users.append(user)
+      self.user_liste.append(user)
     
     for line in empruntsFile.readlines():
       lineSplit = line.strip().split(" ; ")
@@ -68,7 +68,7 @@ class Bibliotheque:
   def RechercherUser(self, id):
     userTrouve = None
 
-    for user in self.liste_users:
+    for user in self.user_liste:
       if user.id == id:
         userTrouve = user
     
@@ -77,7 +77,7 @@ class Bibliotheque:
   def RechercherLivreParRef(self, ref):
     livreTrouve = None
 
-    for livre in self.livres:
+    for livre in self.livre_liste:
       if livre.ref == ref:
         livreTrouve = livre
 
@@ -86,7 +86,7 @@ class Bibliotheque:
   def RechercherLivreParTitre(self, titre, dispo):
     livresTrouves = []
 
-    for livre in self.livres:
+    for livre in self.livre_liste:
       if livre.titre == titre:
         livresTrouves.append(livre)
 
@@ -98,11 +98,11 @@ class Bibliotheque:
   def RechercherLivreParCategorie(self, categorie):
     livresTrouves = []
 
-    if categorie not in self.rayons:
+    if categorie not in self.rayon_liste:
       print("Aucun livre trouvé")
       return None
 
-    for livre in self.livres:
+    for livre in self.livre_liste:
       if livre.categorie == categorie:
         livresTrouves.append(livre)
 
@@ -114,11 +114,11 @@ class Bibliotheque:
   def RechercherLivreParAuteur(self, auteur):
     livresTrouves = []
 
-    if auteur not in self.auteurs:
+    if auteur not in self.auteur_liste:
       print("Aucun livre trouvé")
       return None
 
-    for livre in self.livres:
+    for livre in self.livre_liste:
       if livre.auteur == auteur:
         livresTrouves.append(livre)
 
@@ -130,7 +130,7 @@ class Bibliotheque:
   def RechercherLivreParGenre(self, genre):
     livresTrouves = []
 
-    for livre in self.livres:
+    for livre in self.livre_liste:
       if livre.genre == genre:
         livresTrouves.append(livre)
 
@@ -142,7 +142,7 @@ class Bibliotheque:
   def RechercherLivreParLangue(self, langue):
     livresTrouves = []
 
-    for livre in self.livres:
+    for livre in self.livre_liste:
       print("langue", livre.langue)
       if livre.langue == langue:
         livresTrouves.append(livre)
@@ -152,7 +152,7 @@ class Bibliotheque:
 
     return livresTrouves
 
-  def AfficherDisponibles(self, livres):
+  def AfficherDispo(self, livres):
     livresDispos = []
 
     for livre in livres:
@@ -179,5 +179,5 @@ class Bibliotheque:
     del user.emprunts[indexLivre]
 
   def __repr__(self):
-    return str(f"[{self.nom}, Catégories : {len(self.rayons)},Livres : {len(self.livres)}, Utilisateurs : {len(self.liste_users)} ]")
+    return str(f"[{self.nom}, Catégories : {len(self.rayon_liste)},Livres : {len(self.livre_liste)}, Utilisateurs : {len(self.user_liste)} ]")
     
