@@ -161,7 +161,7 @@ class Bibliotheque:
     
     print('Livres disponibles :', livresDispos)
 
-  def Preter(self, user, livre):
+  def EmprunterLivre(self, user, livre):
     dateDuJour = date.today()
     tempsEmprunt = timedelta(days=7)
     dateRetour = dateDuJour + tempsEmprunt
@@ -171,7 +171,7 @@ class Bibliotheque:
 
     user.emprunts.append(livre)
   
-  def Recuperer(self, user, livre):
+  def RendreLivre(self, user, livre):
     livre.dispo = True
     livre.retour = None
     indexLivre = user.emprunts.index(livre)

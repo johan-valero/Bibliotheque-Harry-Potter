@@ -9,8 +9,8 @@ print("------------------------------------------------\n"
       "Bienvenue sur la banque en ligne de la culture !")
 input("------------------------------------------------\n")
 
-# bibliotheque.ImporterLivre()
-# bibliotheque.ImporterUser()
+# Bibliotheque.ImporterLivre()
+# Bibliotheque.ImporterUsers()
 
 while True:
     # ###### #
@@ -145,7 +145,7 @@ while True:
 
     # Menu 1 : 3 - quitter Application
     elif choix_menu_1 == "3":
-        bibliotheque.ExporterLivre()
-        bibliotheque.ExporterUser()
+        Bibliotheque.ExporterLivre()
+        Bibliotheque.ExporterUser()
         input("Bonne journée !")
         break
