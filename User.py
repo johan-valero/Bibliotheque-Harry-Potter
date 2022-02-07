@@ -13,21 +13,25 @@ class User(Personne):
     def __repr__(self):
         return str(f"[{self.nom}, {self.prenom}, {self.mdp}, {self.emprunts}, {self.grade}]")
 
-    def AfficherEmprunts(self):
-        print(self.emprunts)
+    def AfficherEmprunts(self, bibliotheque):
+      print("Vous avez", len(self.emprunts), "en cours :")
+      j = 0
+      for i in self.emprunts:
+        j += 1
+        print(j, "-", i.titre, "à rendre avant le", bibliotheque.livre_liste[bibliotheque.RechercheIndex(i)].retour)
 
     def EmprunterLivre(self, bibliotheque, livre):
         dateDuJour = date.today()
         tempsEmprunt = timedelta(days=7)
         dateRetour = dateDuJour + tempsEmprunt
-        bibliotheque.livre_liste[livre.RechercheIndex()].dispo = False
-        bibliotheque.livre_liste[livre.RechercheIndex()].retour = dateRetour
+        bibliotheque.livre_liste[bibliotheque.RechercheIndex(livre)].dispo = False
+        bibliotheque.livre_liste[bibliotheque.RechercheIndex(livre)].retour = dateRetour
 
         self.emprunts.append(livre)
     
     def RendreLivre(self, bibliotheque, livre):
-        bibliotheque.livre_liste[livre.RechercheIndex()].dispo = True
-        bibliotheque.livre_liste[livre.RechercheIndex()].retour = None
+        bibliotheque.livre_liste[bibliotheque.RechercheIndex(livre)].dispo = True
+        bibliotheque.livre_liste[bibliotheque.RechercheIndex(livre)].retour = None
         self.compteurLivre += 1
         self.Grade()
         self.emprunts.remove(livre)
@@ -41,3 +45,6 @@ class User(Personne):
             self.grade = "elf"
         else:
             self.grade = "gollum"
+
+    def ChangerMdp(self, new_mdp):
+      self.mdp = new_mdp

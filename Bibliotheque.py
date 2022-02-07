@@ -50,7 +50,9 @@ class Bibliotheque:
       grade = split_line[3]
       emprunts = []
 
-      user = User(nom, prenom, mdp, emprunts, grade)
+      user = User(nom, prenom, mdp)
+      user.emprunts = emprunts
+      user.grade = grade
 
       self.user_liste.append(user)
     
@@ -59,8 +61,8 @@ class Bibliotheque:
       id_user = line_split[0]
       ref_livre = line_split[1]
 
-      user = self.rechercherUser(id_user)
-      livre = self.rechercherLivreParRef(ref_livre)
+      user = self.RechercherUser(id_user)
+      livre = self.RechercherLivreParRef(ref_livre)
 
       if user and livre:
         user.emprunts.append(livre)
@@ -185,6 +187,8 @@ class Bibliotheque:
       users_file.write(user)
 
   def RechercheIndex(self, livre):
+    j = 0
     for l in self.livre_liste:
+      j += 1
       if l.ref == livre.ref:
-        return l
+        return j - 1

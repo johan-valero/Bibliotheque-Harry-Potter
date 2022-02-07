@@ -57,3 +57,8 @@ def check_user_mdp(bibliotheque, identifiant, mdp):
         if i.nom == identifiant and i.mdp == mdp:
             check = True
     return check
+
+def recup_user(bibliotheque, identifiant, mdp):
+    for i in bibliotheque.user_liste:
+        if i.nom == identifiant and i.mdp == mdp:
+            return i
