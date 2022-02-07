@@ -4,36 +4,40 @@ from Bibliotheque import *
 from datatime import date, timedelta
 
 class User(Personne):
-  def __init__(self, nom, prenom, mdp, emprunts, grade):
-    super().__init__(nom, prenom, mdp)
-    self.emprunts = emprunts
-    self.grade = grade
-  
-  def __repr__(self):
-    return str(f"[{self.nom}, {self.prenom}, {self.mdp}, {self.emprunts}, {self.grade}]")
+    def __init__(self, nom, prenom, mdp):
+        super().__init__(nom, prenom, mdp)
+        self.emprunts = []
+        self.grade = "gollum"
+        self.compteurLivre = 0
+    
+    def __repr__(self):
+        return str(f"[{self.nom}, {self.prenom}, {self.mdp}, {self.emprunts}, {self.grade}]")
 
-  def AfficherEmprunts(self):
-    print(self.emprunts)
+    def AfficherEmprunts(self):
+        print(self.emprunts)
 
-  def EmprunterLivre(self, user, livre):
-    dateDuJour = date.today()
-    tempsEmprunt = timedelta(days=7)
-    dateRetour = dateDuJour + tempsEmprunt
+    def EmprunterLivre(self, bibliotheque, livre):
+        dateDuJour = date.today()
+        tempsEmprunt = timedelta(days=7)
+        dateRetour = dateDuJour + tempsEmprunt
+        bibliotheque.livre_liste[livre.RechercheIndex()].dispo = False
+        bibliotheque.livre_liste[livre.RechercheIndex()].retour = dateRetour
 
-    livre.dispo = False
-    livre.retour = dateRetour
+        self.emprunts.append(livre)
+    
+    def RendreLivre(self, bibliotheque, livre):
+        bibliotheque.livre_liste[livre.RechercheIndex()].dispo = True
+        bibliotheque.livre_liste[livre.RechercheIndex()].retour = None
+        self.compteurLivre += 1
+        self.Grade()
+        self.emprunts.remove(livre)
 
-    user.emprunts.append(livre)
-  
-  def RendreLivre(self, user, livre):
-    livre.dispo = True
-    livre.retour = None
-    indexLivre = user.emprunts.index(livre)
-
-    del user.emprunts[indexLivre]
-
-# def Grade (self):
-#     grades = {"moldu":[0,1],"sangdebourge":[2,5],"sorcier":[6,10],"auror":[11,40]}
-
-# emprunts = 0
-
+    def Grade(self):
+        if self.emprunts >= 40:
+            self.grade = "NAIN"
+        elif self.emprunts >= 10:
+            self.grade = "hobbit"
+        elif self.emprunts >= 5:
+            self.grade = "elf"
+        else:
+            self.grade = "gollum"
