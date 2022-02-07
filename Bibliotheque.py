@@ -13,16 +13,16 @@ class Bibliotheque:
   def ImporterLivre(self):
     file = open("database/livres.txt", mode='r', encoding="utf-8")
     for line in file.readlines():
-      splitLine = line.split(' ; ')
+      split_line = line.split(' ; ')
 
-      titre = splitLine[0]
-      auteur = splitLine[1]
-      langue = splitLine[2]
-      categorie = splitLine[3]
-      genre = splitLine[4]
-      ref = splitLine[5]
-      dispo = splitLine[6]
-      retour = splitLine[7]
+      titre = split_line[0]
+      auteur = split_line[1]
+      langue = split_line[2]
+      categorie = split_line[3]
+      genre = split_line[4]
+      ref = split_line[5]
+      dispo = split_line[6]
+      retour = split_line[7]
 
       livre = Livre(titre,auteur,langue,genre,categorie,dispo)
 
@@ -38,65 +38,65 @@ class Bibliotheque:
       self.livre_liste.append(livre)
 
   def ImporterUser(self):
-    usersFile = open("database/utilisateurs.txt", mode='r', encoding="utf-8")
-    empruntsFile = open("database/emprunts.txt", mode='r', encoding="utf-8")
+    users_file = open("database/utilisateurs.txt", mode='r', encoding="utf-8")
+    emprunts_file = open("database/emprunts.txt", mode='r', encoding="utf-8")
 
-    for line in usersFile.readlines():
-      splitLine = line.split(' ; ')
+    for line in users_file.readlines():
+      split_line = line.split(' ; ')
 
-      nom = splitLine[0]
-      prenom = splitLine[1]
-      mdp = splitLine[2]
-      grade = splitLine[3]
+      nom = split_line[0]
+      prenom = split_line[1]
+      mdp = split_line[2]
+      grade = split_line[3]
       emprunts = []
 
       user = User(nom, prenom, mdp, emprunts, grade)
 
       self.user_liste.append(user)
     
-    for line in empruntsFile.readlines():
-      lineSplit = line.strip().split(" ; ")
-      idUser = lineSplit[0]
-      refLivre = lineSplit[1]
+    for line in emprunts_file.readlines():
+      line_split = line.strip().split(" ; ")
+      id_user = line_split[0]
+      ref_livre = line_split[1]
 
-      user = self.rechercherUser(idUser)
-      livre = self.rechercherLivreParRef(refLivre)
+      user = self.rechercherUser(id_user)
+      livre = self.rechercherLivreParRef(ref_livre)
 
       if user and livre:
         user.emprunts.append(livre)
 
   def RechercherUser(self, id):
-    userTrouve = None
+    user_trouve = None
 
     for user in self.user_liste:
       if user.id == id:
-        userTrouve = user
+        user_trouve = user
     
-    return userTrouve
+    return user_trouve
 
   def RechercherLivreParRef(self, ref):
-    livreTrouve = None
+    livre_trouve = None
 
     for livre in self.livre_liste:
       if livre.ref == ref:
-        livreTrouve = livre
+        livre_trouve = livre
 
-    return livreTrouve
+    return livre_trouve
 
   def RechercherLivreParTitre(self, titre, dispo):
-    livresTrouves = []
+    livres_trouves = []
 
     for livre in self.livre_liste:
       if livre.titre == titre:
-        livresTrouves.append(livre)
+        livres_trouves.append(livre)
 
-    if len(livresTrouves) == 0:
+    if len(livres_trouves) == 0:
       print("Aucun livre trouvé")
 
-    return livresTrouves
+    return livres_trouves
 
   def RechercherLivreParCategorie(self, categorie):
-    livresTrouves = []
+    livres_trouves = []
 
     if categorie not in self.rayon_liste:
       print("Aucun livre trouvé")
@@ -104,15 +104,15 @@ class Bibliotheque:
 
     for livre in self.livre_liste:
       if livre.categorie == categorie:
-        livresTrouves.append(livre)
+        livres_trouves.append(livre)
 
-    if len(livresTrouves) == 0:
+    if len(livres_trouves) == 0:
       print("Aucun livre trouvé")
 
-    return livresTrouves
+    return livres_trouves
 
   def RechercherLivreParAuteur(self, auteur):
-    livresTrouves = []
+    livres_trouves = []
 
     if auteur not in self.auteur_liste:
       print("Aucun livre trouvé")
@@ -120,37 +120,37 @@ class Bibliotheque:
 
     for livre in self.livre_liste:
       if livre.auteur == auteur:
-        livresTrouves.append(livre)
+        livres_trouves.append(livre)
 
-    if len(livresTrouves) == 0:
+    if len(livres_trouves) == 0:
       print("Aucun livre trouvé")
 
-    return livresTrouves
+    return livres_trouves
 
   def RechercherLivreParGenre(self, genre):
-    livresTrouves = []
+    livres_trouves = []
 
     for livre in self.livre_liste:
       if livre.genre == genre:
-        livresTrouves.append(livre)
+        livres_trouves.append(livre)
 
-    if len(livresTrouves) == 0:
+    if len(livres_trouves) == 0:
       print("Aucun livre trouvé")
 
-    return livresTrouves
+    return livres_trouves
 
   def RechercherLivreParLangue(self, langue):
-    livresTrouves = []
+    livres_trouves = []
 
     for livre in self.livre_liste:
       print("langue", livre.langue)
       if livre.langue == langue:
-        livresTrouves.append(livre)
+        livres_trouves.append(livre)
 
-    if len(livresTrouves) == 0:
+    if len(livres_trouves) == 0:
       print("Aucun livre trouvé")
 
-    return livresTrouves
+    return livres_trouves
 
   def AfficherDispo(self, livres):
     livresDispos = []
@@ -161,23 +161,30 @@ class Bibliotheque:
     
     print('Livres disponibles :', livresDispos)
 
-  def EmprunterLivre(self, user, livre):
-    dateDuJour = date.today()
-    tempsEmprunt = timedelta(days=7)
-    dateRetour = dateDuJour + tempsEmprunt
-
-    livre.dispo = False
-    livre.retour = dateRetour
-
-    user.emprunts.append(livre)
-  
-  def RendreLivre(self, user, livre):
-    livre.dispo = True
-    livre.retour = None
-    indexLivre = user.emprunts.index(livre)
-
-    del user.emprunts[indexLivre]
-
   def __repr__(self):
     return str(f"[{self.nom}, Catégories : {len(self.rayon_liste)},Livres : {len(self.livre_liste)}, Utilisateurs : {len(self.user_liste)} ]")
-    
+
+  def ExporterLivre(self, livre):
+    file = open("database/livres.txt", mode='a', encoding="utf-8")
+
+    for line in file.readlines():
+      split_line = line.split(';')
+      ref = split_line[5]
+
+    if livre.ref != ref:
+      file.write(livre)
+
+  def ExporterUser(self, user):
+    users_file = open("database/utilisateurs.txt", mode='a', encoding="utf-8")
+
+    for line in users_file.readlines():
+      split_line = line.split(';')
+      id_user = split_line[0]
+
+    if user.id != id_user:
+      users_file.write(user)
+
+  def RechercheIndex(self, livre):
+    for l in self.livre_liste:
+      if l.ref == livre.ref:
+        return l
