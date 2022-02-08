@@ -51,8 +51,7 @@ class User(Personne):
     def ChangerMdp(self, new_mdp):
         self.mdp = new_mdp
 
-    def Prolongation(self, bibliotheque, livre):
-        durée = input("Désirez-vous prolonger la durée d'emprunt du livre ? : (y/n) \n\t ")
-        if durée == "y":
-            dateRetour = bibliotheque.livre_liste[bibliotheque.RechercheIndex(livre)].retour 
-            dateRetour += timedelta(days=7)
+    def ProlongerEmprunt(self, bibliotheque, livre):
+        dateRetour = bibliotheque.livre_liste[bibliotheque.RechercheIndex(livre)].retour 
+        dateRetour += timedelta(days=7)
+        bibliotheque.livre_liste[bibliotheque.RechercheIndex(livre)].retour = dateRetour
