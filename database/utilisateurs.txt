@@ -1,3 +1,0 @@
-Karasu ; David ; 1234 ; Sorcier
-Tedrayreq ; Teddy ; 1234 ; Mage
-Mojojojo ; Johan ; 1234 ; Sorcier

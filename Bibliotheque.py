@@ -1,3 +1,7 @@
+from asyncore import read
+from itertools import chain
+from os import putenv
+from posixpath import split
 from User import User
 from Livre import Livre
 from datetime import date, timedelta
@@ -30,7 +34,7 @@ class Bibliotheque:
   def ImporterLivre(self):
     file = open("database/livres.txt", mode='r', encoding="utf-8")
     for line in file.readlines():
-      split_line = line.split(' ; ')
+      split_line = line.split(';')
 
       titre = split_line[0]
       auteur = split_line[1]
@@ -56,56 +60,36 @@ class Bibliotheque:
 
   def ImporterUser(self):
     users_file = open("database/utilisateurs.txt", mode='r', encoding="utf-8")
-    emprunts_file = open("database/emprunts.txt", mode='r', encoding="utf-8")
-
     for line in users_file.readlines():
-      split_line = line.split(' ; ')
+      split_line = line.split(';')
 
-      nom = split_line[0]
-      prenom = split_line[1]
-      mdp = split_line[2]
-      grade = split_line[3]
-      emprunts = []
+      id_user = split_line[0]
+      nom = split_line[1]
+      prenom = split_line[2]
+      mdp = split_line[3]
+      emprunts = split_line[4]
+      grade = split_line[5]
 
       user = User(nom, prenom, mdp)
       user.emprunts = emprunts
       user.grade = grade
+      user.id = id_user
 
       self.user_liste.append(user)
-    
-    for line in emprunts_file.readlines():
-      line_split = line.strip().split(" ; ")
-      id_user = line_split[0]
-      ref_livre = line_split[1]
-
-      user = self.RechercherUser(id_user)
-      livre = self.RechercherLivreParRef(ref_livre)
-
-      if user and livre:
-        user.emprunts.append(livre)
 
   ############### Export ####################
 
-  def ExporterLivre(self, livre):
-    file = open("database/livres.txt", mode='a', encoding="utf-8")
+  def ExporterLivre(self):    
+    with open("database/livres.txt", mode='w', encoding="utf-8") as f:
+      for i in self.livre_liste:
+        chaine = i.titre + ";" + i.auteur + ";" + i.langue + ";" + i.genre + ";" + i.categorie + ";" + i.ref + ";" + str(i.dispo) + ";" + str(i.retour) + "\n"
+        f.write(chaine)
 
-    for line in file.readlines():
-      split_line = line.split(';')
-      ref = split_line[5]
-
-    if livre.ref != ref:
-      file.write(livre)
-
-  def ExporterUser(self, user):
-    users_file = open("database/utilisateurs.txt", mode='a', encoding="utf-8")
-
-    for line in users_file.readlines():
-      split_line = line.split(';')
-      id_user = split_line[0]
-
-    if user.id != id_user:
-      users_file.write(user)
-
+  def ExporterUser(self):
+    with open("database/utilisateurs.txt", mode='w', encoding="utf-8") as f:
+      for i in self.user_liste:
+        chaine = i.id + ";" + i.nom + ";" + i.prenom + ";" + i.mdp + ";" + str(i.emprunts) + ";" + i.grade + "\n"
+        f.write(chaine)
 
   # ############################ #
   #         Rechercher           #

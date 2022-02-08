@@ -313,7 +313,8 @@ while True:
 
     # Menu 1 : 3 - quitter Application
     elif choix_menu_1 == "3":
-        # poney_fringuant.ExporterLivre() # -> Corriger ExporterLivre (all livres et pas que un)
-        # poney_fringuant.ExporterUser() # -> Pareil qu'au dessus
+        poney_fringuant.ExporterLivre()
+        poney_fringuant.ExporterUser()
         input("Bonne journée !")
         break
+
