@@ -209,7 +209,7 @@ while True:
                 
                     if livre_a_rendre != "exit":
                         livre_a_rendre = int(livre_a_rendre) - 1
-                        user_connecte.Rendre(user_connecte.emprunts[livre_a_rendre])
+                        user_connecte.RendreLivre(poney_fringuant, user_connecte.emprunts[livre_a_rendre])
                         input("Vous avez rendu votre livre")
 
 

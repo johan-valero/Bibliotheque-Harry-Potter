@@ -37,11 +37,11 @@ class User(Personne):
         self.emprunts.remove(livre)
 
     def Grade(self):
-        if self.emprunts >= 40:
+        if self.compteurLivre >= 40:
             self.grade = "NAIN"
-        elif self.emprunts >= 10:
+        elif self.compteurLivre >= 10:
             self.grade = "hobbit"
-        elif self.emprunts >= 5:
+        elif self.compteurLivre >= 5:
             self.grade = "elf"
         else:
             self.grade = "gollum"
