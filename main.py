@@ -74,7 +74,16 @@ while True:
                     input("Entrer pour quitter")
                 elif len(user_connecte.emprunts) > 0:
                     user_connecte.AfficherEmprunts(poney_fringuant)
-                    input("Entrer pour quitter")
+                    print("Souhaitez-vous prolonger un emprunt ? y/n")
+                    check_prolongation = input("> ")
+                    if check_prolongation == "y":
+                        print("Quel emprunt souhaitez-vous prolonger ?")
+                        user_connecte.AfficherEmprunts(poney_fringuant)
+                        qui_prolonger = input("> ")
+                        if check_int(qui_prolonger):
+                            qui_prolonger = int(qui_prolonger)
+                            if qui_prolonger <= len(user_connecte.emprunts):
+                                user_connecte.ProlongerEmprunt(user_connecte.emprunts[qui_prolonger - 1])
 
             # Menu 2 : 2 - Emprunter
             elif choix_menu_2 == "2":
