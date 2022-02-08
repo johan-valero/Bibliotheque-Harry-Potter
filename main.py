@@ -15,6 +15,9 @@ poney_fringuant = Bibliotheque("poney_fringuant")
 poney_fringuant.ImporterLivre()
 poney_fringuant.ImporterUser()
 
+# poney_fringuant.AfficherDispo()
+# input()
+
 while True:
     # ###### #
     # Menu 1 #
@@ -96,18 +99,24 @@ while True:
                         emprunter = False
                     
                     elif choix_recherche == "1":
+                        clear()
                         print("Veuillez renseigner la référence recherché :")
                         recherche = input("> ")
                         resultat = poney_fringuant.RechercherLivreParRef(recherche)
-                        print("Voulez-vous emprunter :", resultat.titre, "? y/n")
-                        check_correct = input("> ")
-                        if check_correct == "y":
-                            user_connecte.EmprunterLivre(poney_fringuant, resultat)
-                            print("Vous avez emprunté", resultat.titre, 
-                                  "veuillez le rendre avant le", poney_fringuant.livre_liste[poney_fringuant.RechercheIndex(resultat)].retour)
+                        if resultat.dispo:
+                            print("Voulez-vous emprunter :", resultat.titre, "? y/n")
+                            check_correct = input("> ")
+                            if check_correct == "y":
+                                user_connecte.EmprunterLivre(poney_fringuant, resultat)
+                                print("Vous avez emprunté", resultat.titre, 
+                                    "veuillez le rendre avant le", poney_fringuant.livre_liste[poney_fringuant.RechercheIndex(resultat)].retour)
+                                input()
+                        else:
+                            print(resultat.titre, "n'est pas disponible à l'emprunt")
                             input()
 
                     elif choix_recherche == "2":
+                        clear()
                         print("Veuillez renseigner le titre recherché :")
                         recherche = input("> ")
                         resultat = poney_fringuant.RechercherLivreParTitre(recherche)
@@ -117,13 +126,17 @@ while True:
                             print(j, "-", i.titre)
                         print("Quel livre voulez-vous emprunter ?")
                         choix_resultat = input("> ")
-                        livre_choisi = resultat[choix_resultat - 1]
-                        user_connecte.EmprunterLivre(poney_fringuant, livre_choisi)
-                        print("Vous avez emprunté", livre_choisi.titre, 
-                              "veuillez le rendre avant le", poney_fringuant.livre_liste[poney_fringuant.RechercheIndex(livre_choisi)].retour)
-                        input()
+                        if check_int(choix_resultat):
+                            choix_resultat = int(choix_resultat)
+                            if choix_resultat <= len(resultat):
+                                livre_choisi = resultat[choix_resultat - 1]
+                                user_connecte.EmprunterLivre(poney_fringuant, livre_choisi)
+                                print("Vous avez emprunté", livre_choisi.titre, 
+                                    "veuillez le rendre avant le", poney_fringuant.livre_liste[poney_fringuant.RechercheIndex(livre_choisi)].retour)
+                                input()
                     
                     elif choix_recherche == "3":
+                        clear()
                         print("Veuillez renseigner la catégorie recherchée :")
                         recherche = input("> ")
                         resultat = poney_fringuant.RechercherLivreParCategorie(recherche)
@@ -133,13 +146,17 @@ while True:
                             print(j, "-", i.titre)
                         print("Quel livre voulez-vous emprunter ?")
                         choix_resultat = input("> ")
-                        livre_choisi = resultat[choix_resultat - 1]
-                        user_connecte.EmprunterLivre(poney_fringuant, livre_choisi)
-                        print("Vous avez emprunté", livre_choisi.titre, 
-                              "veuillez le rendre avant le", poney_fringuant.livre_liste[poney_fringuant.RechercheIndex(livre_choisi)].retour)
-                        input()
+                        if check_int(choix_resultat):
+                            choix_resultat = int(choix_resultat)
+                            if choix_resultat <= len(resultat):
+                                livre_choisi = resultat[choix_resultat - 1]
+                                user_connecte.EmprunterLivre(poney_fringuant, livre_choisi)
+                                print("Vous avez emprunté", livre_choisi.titre, 
+                                    "veuillez le rendre avant le", poney_fringuant.livre_liste[poney_fringuant.RechercheIndex(livre_choisi)].retour)
+                                input()
                     
                     elif choix_recherche == "4":
+                        clear()
                         print("Veuillez renseigner l'auteur recherché :")
                         recherche = input("> ")
                         resultat = poney_fringuant.RechercherLivreParAuteur(recherche)
@@ -149,13 +166,17 @@ while True:
                             print(j, "-", i.titre)
                         print("Quel livre voulez-vous emprunter ?")
                         choix_resultat = input("> ")
-                        livre_choisi = resultat[choix_resultat - 1]
-                        user_connecte.EmprunterLivre(poney_fringuant, livre_choisi)
-                        print("Vous avez emprunté", livre_choisi.titre, 
-                              "veuillez le rendre avant le", poney_fringuant.livre_liste[poney_fringuant.RechercheIndex(livre_choisi)].retour)
-                        input()
+                        if check_int(choix_resultat):
+                            choix_resultat = int(choix_resultat)
+                            if choix_resultat <= len(resultat):
+                                livre_choisi = resultat[choix_resultat - 1]
+                                user_connecte.EmprunterLivre(poney_fringuant, livre_choisi)
+                                print("Vous avez emprunté", livre_choisi.titre, 
+                                    "veuillez le rendre avant le", poney_fringuant.livre_liste[poney_fringuant.RechercheIndex(livre_choisi)].retour)
+                                input()
                     
                     elif choix_recherche == "5":
+                        clear()
                         print("Veuillez renseigner le genre recherché :")
                         recherche = input("> ")
                         resultat = poney_fringuant.RechercherLivreParGenre(recherche)
@@ -165,13 +186,17 @@ while True:
                             print(j, "-", i.titre)
                         print("Quel livre voulez-vous emprunter ?")
                         choix_resultat = input("> ")
-                        livre_choisi = resultat[choix_resultat - 1]
-                        user_connecte.EmprunterLivre(poney_fringuant, livre_choisi)
-                        print("Vous avez emprunté", livre_choisi.titre, 
-                              "veuillez le rendre avant le", poney_fringuant.livre_liste[poney_fringuant.RechercheIndex(livre_choisi)].retour)
-                        input()
+                        if check_int(choix_resultat):
+                            choix_resultat = int(choix_resultat)
+                            if choix_resultat <= len(resultat):
+                                livre_choisi = resultat[choix_resultat - 1]
+                                user_connecte.EmprunterLivre(poney_fringuant, livre_choisi)
+                                print("Vous avez emprunté", livre_choisi.titre, 
+                                    "veuillez le rendre avant le", poney_fringuant.livre_liste[poney_fringuant.RechercheIndex(livre_choisi)].retour)
+                                input()
                     
                     elif choix_recherche == "6":
+                        clear()
                         print("Veuillez renseigner la langue recherchée :")
                         recherche = input("> ")
                         resultat = poney_fringuant.RechercherLivreParLangue(recherche)
@@ -181,11 +206,14 @@ while True:
                             print(j, "-", i.titre)
                         print("Quel livre voulez-vous emprunter ?")
                         choix_resultat = input("> ")
-                        livre_choisi = resultat[choix_resultat - 1]
-                        user_connecte.EmprunterLivre(poney_fringuant, livre_choisi)
-                        print("Vous avez emprunté", livre_choisi.titre, 
-                              "veuillez le rendre avant le", poney_fringuant.livre_liste[poney_fringuant.RechercheIndex(livre_choisi)].retour)
-                        input()
+                        if check_int(choix_resultat):
+                            choix_resultat = int(choix_resultat)
+                            if choix_resultat <= len(resultat):
+                                livre_choisi = resultat[choix_resultat - 1]
+                                user_connecte.EmprunterLivre(poney_fringuant, livre_choisi)
+                                print("Vous avez emprunté", livre_choisi.titre, 
+                                    "veuillez le rendre avant le", poney_fringuant.livre_liste[poney_fringuant.RechercheIndex(livre_choisi)].retour)
+                                input()
 
             # Menu 3 : 3 - Rendre
             elif choix_menu_2 == "3":

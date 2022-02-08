@@ -26,6 +26,7 @@ class User(Personne):
         dateRetour = dateDuJour + tempsEmprunt
         bibliotheque.livre_liste[bibliotheque.RechercheIndex(livre)].dispo = False
         bibliotheque.livre_liste[bibliotheque.RechercheIndex(livre)].retour = dateRetour
+        
 
         self.emprunts.append(livre)
     
