@@ -1,5 +1,3 @@
-from argparse import ArgumentDefaultsHelpFormatter
-from weakref import ref
 from BD import *
 from Bibliotheque import *
 from Livre import *
