@@ -67,12 +67,13 @@ class Bibliotheque:
       nom = split_line[1]
       prenom = split_line[2]
       mdp = split_line[3]
-      grade = split_line[4]
-      emprunts = split_line[5]
+      emprunts = split_line[4]
+      grade = split_line[5]
 
       user = User(nom, prenom, mdp)
       user.emprunts = emprunts
       user.grade = grade
+      user.id = id_user
 
       self.user_liste.append(user)
 
