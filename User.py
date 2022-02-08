@@ -54,7 +54,5 @@ class User(Personne):
     def Prolongation(self, bibliotheque, livre):
         durée = input("Désirez-vous prolonger la durée d'emprunt du livre ? : (y/n) \n\t ")
         if durée == "y":
-            dateRetour =+ timedelta(days=7)
-            bibliotheque.livre_liste[bibliotheque.RechercheIndex(livre)].retour = dateRetour
-        else:
-            pass
+            dateRetour = bibliotheque.livre_liste[bibliotheque.RechercheIndex(livre)].retour 
+            dateRetour += timedelta(days=7)
