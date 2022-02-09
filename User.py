@@ -7,11 +7,12 @@ class User(Personne):
     def __init__(self, nom, prenom, mdp):
         super().__init__(nom, prenom, mdp)
         self.emprunts = []
-        self.grade = "gollum"
-        self.compteurLivre = 0
+        self.grade = "Moldu"
+        self.compteur_livre = 0
+        self.maison = None
     
     def __repr__(self):
-        return str(f"[{self.nom}, {self.prenom}, {self.mdp}, {self.emprunts}, {self.grade}]")
+        return str(f"[{self.nom}, {self.prenom}, {self.mdp}, {self.emprunts}, {self.grade}, {self.compteur_livre}, {self.maison}]")
     
     # Utilities
     def Check_int(self, data):
@@ -66,25 +67,106 @@ class User(Personne):
                         input()
 
     # Emprunter un livre + Rendre un livre
+    def ChoisirMaison(self):
+        self.Clear()
+        print('''                                    
+                                           &&&&&&&&&&&&&%                                 
+                                         &&&.*&&&/&&&&&&&&&&&&&&@*                        
+                                        %&&&&/ &&.&&&&&&&&&&&&&&&&&&&*                    
+                                       ,&&&&&&  @. *&&&&&((((/,,,..                       
+                                       @&&&&&&&%  &   &&&,                                
+                                   ,@&&&&&&&&&&&&&&&%/&%                                  
+                                  @&&&&&&&&&&&&&&&&&&&                                    
+                                 #&&&&&&&&&&&&&&&&&&&&&,                                  
+                                 &&&&&&&&&&&&&&&&&&&&&&&,                                 
+                               %&&&&&&&&&&&&&&&&&&&&&&&&&/                                
+                             &&&&&&&*     *&&&&&&&&&&&&&&&%                               
+                            ,&&&&&&&&,       &&&&&&&&&&&&&&&.                             
+                             @&&&&&&&&@        &&&&&&&&&&/ /                              
+                             ,&&&&&&&&&&%        %&&&(     @                              
+                              &&&&&&&&&&&&&@#*          *&&&&                             
+                             #&&&&&&&&&&&&&%  &&&&&&&&% (&&&&&                            
+                            ,&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&,                          
+                            @&&&&&&&&&&&&&&&&&%/.          *&&&&#                         
+                           &&&&&&&&&&&&&@(                   (&,&&                        
+                         &&&&&&&&&&&@.      ,(%&&&&&&&&&&&&&&&&* (&#                      
+                        .&&,&&&@,  %&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&       %@&&&&&&&&@   
+                         @&&,*@&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&/        %&  
+                         (&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&%.            ,&/  
+                         %&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&@*          ,%&&@(.      
+     #&&&&&&&&&&&&@@&&@&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&@     **@@@&%.               
+  &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&#,                                 
+ &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&@%*                                          
+   .@&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&@%*                                                  
+            ,(@@@@@@@@@@((.''')
+        print("Mais vous avez des pouvoirs magiques ?!\n"
+              "Vos lectures vous ont permi de devenir Apprenti Sorcier !\n"
+              "En tant que tel, vous vous devez de choisir une maison !")
+        input()
+        continuer = True
+        while continuer:
+            print("Quelle maison vous intéresse ?")
+            # Affichage des ASCII Blason
+            choix_maison = input("> ")
+            if choix_maison == "1":
+                self.Clear()
+                input("Gryffondor")
+            elif choix_maison == "2":
+                self.Clear()
+                input("Poufsouffle")
+            elif choix_maison == "3":
+                self.Clear()
+                input("Serdaigle")
+            elif choix_maison == "4":
+                self.Clear()
+                input("Serpentard")
+            elif choix_maison == "5":
+                self.Clear()
+                print("Entrez votre choix final en toute lettre pour prêter allégeance à votre maison")
+                maison_choisie = input("> ")
+                while not maison_choisie == "Griffondor" and not maison_choisie == "Poufsouffle" and not maison_choisie == "Serdaigle" and not maison_choisie == "Serpentard":
+                    maison_choisie = input("> ")
+                print("Vous avez choisi :", maison_choisie, ", confirmer ? y/n")
+                print("\033[31mAttention ce choix est définitif !\033[37m")
+                confirmation = input("> ")
+                if confirmation == "y":
+                    self.maison = maison_choisie
+                    print("Vous défendrez donc les couleurs de", maison_choisie, "!")
+                    input("Vous avez désormais accée au Classement des Maisons, que la meilleure gagne !")
+                    continuer = False
+                else:
+                    input("Je vois que vous hésitez encore, prenez le temps d'y réfléchir")
+        
+    
     def Grade(self):
-        if self.compteurLivre >= 40:
-            self.grade = "NAIN"
-        elif self.compteurLivre >= 10:
-            self.grade = "hobbit"
-        elif self.compteurLivre >= 5:
-            self.grade = "elf"
-        else:
-            self.grade = "gollum"
+        if self.compteur_livre == 5 and self.grade == "Moldu":
+            self.grade = "Apprenti Sorcier"
+            self.ChoisirMaison()
+
+        elif self.compteur_livre == 10 and self.grade == "Apprenti Sorcier":
+            self.grade = "Sorcier"
+
+        elif self.compteur_livre == 40 and self.grade == "Sorcier":
+            self.grade = "Auror"
     
     # Emprunter
     def EmprunterLivre(self, bibliotheque, livre):
-        dateDuJour = date.today()
-        tempsEmprunt = timedelta(days=7)
-        dateRetour = dateDuJour + tempsEmprunt
-        bibliotheque.livre_liste[bibliotheque.RechercheIndexParLivre(livre)].dispo = False
-        bibliotheque.livre_liste[bibliotheque.RechercheIndexParLivre(livre)].retour = dateRetour
+        dico_grade = {"Moldu": 1, "Apprenti sorcier": 2, "Sorcier": 3, "Auror": 4}
+        for i in dico_grade:
+            if self.grade == i:
+                nb_max_emprunts = dico_grade[i]
         
-        self.emprunts.append(livre.ref)
+        if len(self.emprunts) == nb_max_emprunts:
+            input("Vous ne pouvez pas emprunter de livre en plus")
+        
+        elif len(self.emprunts) < nb_max_emprunts:
+            dateDuJour = date.today()
+            tempsEmprunt = timedelta(days=7)
+            dateRetour = dateDuJour + tempsEmprunt
+            bibliotheque.livre_liste[bibliotheque.RechercheIndexParLivre(livre)].dispo = False
+            bibliotheque.livre_liste[bibliotheque.RechercheIndexParLivre(livre)].retour = dateRetour
+            
+            self.emprunts.append(livre.ref)
     
     # Rendre
     def RendreLivre(self, bibliotheque):
@@ -112,10 +194,10 @@ class User(Personne):
 
                 bibliotheque.livre_liste[bibliotheque.RechercheIndexParRef(livre_a_rendre)].dispo = True
                 bibliotheque.livre_liste[bibliotheque.RechercheIndexParRef(livre_a_rendre)].retour = None
-                self.compteurLivre += 1
-                self.Grade()
+                self.compteur_livre += 1
                 self.emprunts.remove(livre_a_rendre)
                 input("Vous avez rendu votre livre")
+                self.Grade()
 
     # Changer Mdp
     def Check_mdp(self, mdp):
