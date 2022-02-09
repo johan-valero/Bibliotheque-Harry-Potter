@@ -195,9 +195,16 @@ class Bibliotheque:
     for i in livresDispos:
       print(i)
 
-  def RechercheIndex(self, livre):
+  def RechercheIndexParLivre(self, livre):
     j = 0
     for l in self.livre_liste:
       j += 1
       if l.ref == livre.ref:
+        return j - 1
+  
+  def RechercheIndexParRef(self, livre_ref):
+    j = 0
+    for l in self.livre_liste:
+      j += 1
+      if l.ref == livre_ref:
         return j - 1

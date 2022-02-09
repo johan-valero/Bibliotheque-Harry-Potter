@@ -116,7 +116,7 @@ while True:
                             if check_correct == "y":
                                 user_connecte.EmprunterLivre(poney_fringuant, resultat)
                                 print("Vous avez emprunté", resultat.titre, 
-                                    "veuillez le rendre avant le", poney_fringuant.livre_liste[poney_fringuant.RechercheIndex(resultat)].retour)
+                                    "veuillez le rendre avant le", poney_fringuant.livre_liste[poney_fringuant.RechercheIndexParLivre(resultat)].retour)
                                 input()
                         else:
                             print(resultat.titre, "n'est pas disponible à l'emprunt")
@@ -140,7 +140,7 @@ while True:
                                 if livre_choisi.dispo:
                                     user_connecte.EmprunterLivre(poney_fringuant, livre_choisi)
                                     print("Vous avez emprunté", livre_choisi.titre, 
-                                        "veuillez le rendre avant le", poney_fringuant.livre_liste[poney_fringuant.RechercheIndex(livre_choisi)].retour)
+                                        "veuillez le rendre avant le", poney_fringuant.livre_liste[poney_fringuant.RechercheIndexParLivre(livre_choisi)].retour)
                                     input()
                                 else:
                                     print(livre_choisi.titre, "n'est pas disponible à l'emprunt")
@@ -164,7 +164,7 @@ while True:
                                 if livre_choisi.dispo:
                                     user_connecte.EmprunterLivre(poney_fringuant, livre_choisi)
                                     print("Vous avez emprunté", livre_choisi.titre, 
-                                        "veuillez le rendre avant le", poney_fringuant.livre_liste[poney_fringuant.RechercheIndex(livre_choisi)].retour)
+                                        "veuillez le rendre avant le", poney_fringuant.livre_liste[poney_fringuant.RechercheIndexParLivre(livre_choisi)].retour)
                                     input()
                                 else:
                                     print(livre_choisi.titre, "n'est pas disponible à l'emprunt")
@@ -188,7 +188,7 @@ while True:
                                 if livre_choisi.dispo:
                                     user_connecte.EmprunterLivre(poney_fringuant, livre_choisi)
                                     print("Vous avez emprunté", livre_choisi.titre, 
-                                        "veuillez le rendre avant le", poney_fringuant.livre_liste[poney_fringuant.RechercheIndex(livre_choisi)].retour)
+                                        "veuillez le rendre avant le", poney_fringuant.livre_liste[poney_fringuant.RechercheIndexParLivre(livre_choisi)].retour)
                                     input()
                                 else:
                                     print(livre_choisi.titre, "n'est pas disponible à l'emprunt")
@@ -212,7 +212,7 @@ while True:
                                 if livre_choisi.dispo:
                                     user_connecte.EmprunterLivre(poney_fringuant, livre_choisi)
                                     print("Vous avez emprunté", livre_choisi.titre, 
-                                        "veuillez le rendre avant le", poney_fringuant.livre_liste[poney_fringuant.RechercheIndex(livre_choisi)].retour)
+                                        "veuillez le rendre avant le", poney_fringuant.livre_liste[poney_fringuant.RechercheIndexParLivre(livre_choisi)].retour)
                                     input()
                                 else:
                                     print(livre_choisi.titre, "n'est pas disponible à l'emprunt")
@@ -236,7 +236,7 @@ while True:
                                 if livre_choisi.dispo:
                                     user_connecte.EmprunterLivre(poney_fringuant, livre_choisi)
                                     print("Vous avez emprunté", livre_choisi.titre, 
-                                        "veuillez le rendre avant le", poney_fringuant.livre_liste[poney_fringuant.RechercheIndex(livre_choisi)].retour)
+                                        "veuillez le rendre avant le", poney_fringuant.livre_liste[poney_fringuant.RechercheIndexParLivre(livre_choisi)].retour)
                                     input()
                                 else:
                                     print(livre_choisi.titre, "n'est pas disponible à l'emprunt")
@@ -252,7 +252,7 @@ while True:
                     j = 0
                     for i in user_connecte.emprunts:
                         j += 1
-                        print(j, "-", i.titre, "\n")
+                        print(j, "-", poney_fringuant.livre_liste[poney_fringuant.RechercheIndexParRef(i)].titre, "\n")
 
                     livre_a_rendre = input("Quel livre désirez-vous rendre ? \"exit\" pour quitter\n> ")
                     while not check_int(livre_a_rendre):
@@ -270,22 +270,7 @@ while True:
 
             # Menu 4 : 4 - Changer mot de passe
             elif choix_menu_2 == "4":
-                # check sécurité
-                clear()
-                print("Changement de mot de passe\n")
-                check_secu = input("Veuillez rentrer votre mot de passe :\n> ")
-                if check_user_mdp(poney_fringuant, user_connecte.nom, check_secu):
-                    new_mdp = input("Veuillez renseigner le nouveau mot de passe :\n> ")
-                    check_new_mdp = input("Veuillez confirmer le nouveau mot de passe :\n> ")
-                    if new_mdp == check_new_mdp:
-                        user_connecte.ChangerMdp(new_mdp)
-                        input("Votre mot de passe a été changé avec succés")
-                    
-                    elif new_mdp != check_new_mdp:
-                        input("Erreur, abandon du changement de mot de passe")
-                
-                elif not check_user_mdp(poney_fringuant, user_connecte.nom, check_secu):
-                    input("Erreur, abandon du changement de mot de passe")
+                user_connecte.ChangerMdp()
 
             # Menu 5 : 5 - Déconnexion
             elif choix_menu_2 == "5":
