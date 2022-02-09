@@ -64,25 +64,7 @@ while True:
 
             # Menu 2 : 1 - Afficher emprunts
             if choix_menu_2 == "1":
-                clear()
-                print("Emprunts\n")
-                if len(user_connecte.emprunts) == 0:
-                    print("Vous n'avez pas d'emprunt en cours\n")
-                    input("Entrer pour quitter")
-                elif len(user_connecte.emprunts) > 0:
-                    user_connecte.AfficherEmprunts(poney_fringuant)
-                    print("Souhaitez-vous prolonger un emprunt ? y/n")
-                    check_prolongation = input("> ")
-                    if check_prolongation == "y":
-                        print("Quel emprunt souhaitez-vous prolonger ?")
-                        user_connecte.AfficherEmprunts(poney_fringuant)
-                        qui_prolonger = input("> ")
-                        if check_int(qui_prolonger):
-                            qui_prolonger = int(qui_prolonger)
-                            if qui_prolonger <= len(user_connecte.emprunts):
-                                user_connecte.ProlongerEmprunt(poney_fringuant, user_connecte.emprunts[qui_prolonger - 1])
-                                print("Votre demande de prolongation d'emprunt a bien été prise en compte")
-                                input()
+                user_connecte.AfficherEmprunts(poney_fringuant)
 
             # Menu 2 : 2 - Emprunter
             elif choix_menu_2 == "2":
@@ -278,4 +260,3 @@ while True:
         poney_fringuant.ExporterUser()
         input("Bonne journée !")
         break
-
