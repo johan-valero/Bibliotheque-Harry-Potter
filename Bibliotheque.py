@@ -34,7 +34,8 @@ class Bibliotheque:
 		with open("database/livres.txt", mode='r', encoding="utf-8") as file:
 			for line in file.readlines():
 				split_line = line.split(';')
-				if len(split_line) >= 8: 
+				
+				if len(split_line) == 8: 
 					titre = split_line[0]
 					auteur = split_line[1]
 					langue = split_line[2]
@@ -42,7 +43,7 @@ class Bibliotheque:
 					genre = split_line[4]
 					ref = split_line[5]
 					dispo = split_line[6]
-					retour = split_line[7]
+					retour = split_line[7][:-1]
 
 					if dispo == "True":
 						dispo = True
@@ -52,40 +53,54 @@ class Bibliotheque:
 					if retour == "None":
 						retour = None
 
-					if len(split_line) == 10:
-						couleur = split_line[8]
-						dessinateur = split_line[9]
+					bidule = Livre(titre,auteur,langue,categorie,genre,dispo)
 
-						if couleur == "True":
-							couleur = True
-						elif couleur == "False":
-							couleur = False
+					bidule.ref = ref
+					bidule.retour = retour
 
-						bidule = BD(titre,auteur,langue,categorie,genre,dispo, couleur, dessinateur)
+				elif len(split_line) == 10:
+					titre = split_line[0]
+					auteur = split_line[1]
+					langue = split_line[2]
+					categorie = split_line[3]
+					genre = split_line[4]
+					ref = split_line[5]
+					dispo = split_line[6]
+					retour = split_line[7]
+					couleur = split_line[8]
+					dessinateur = split_line[9][:-1]
 
-						bidule.ref = ref
-						bidule.retour = retour
-					
-					else:
-						bidule = Livre(titre,auteur,langue,categorie,genre,dispo)
+					if dispo == "True":
+						dispo = True
+					elif dispo == "False":
+						dispo = False
 
-						bidule.ref = ref
-						bidule.retour = retour
+					if retour == "None":
+						retour = None
 
-					if auteur not in self.auteur_liste:
-						self.auteur_liste.append(auteur)
+					if couleur == "True":
+						couleur = True
+					elif couleur == "False":
+						couleur = False
 
-					if categorie not in self.rayon_liste:
-						self.rayon_liste.append(categorie)
+					bidule = BD(titre,auteur,langue,categorie,genre,dispo, couleur, dessinateur)
 
-					self.livre_liste.append(bidule)
+					bidule.ref = ref
+					bidule.retour = retour		
+
+				if auteur not in self.auteur_liste:
+					self.auteur_liste.append(auteur)
+
+				if categorie not in self.rayon_liste:
+					self.rayon_liste.append(categorie)
+
+				self.livre_liste.append(bidule)
 			file.close()
 
 	def ImporterUser(self):
 		with open("database/utilisateurs.txt", mode='r', encoding="utf-8") as users_file:
 			for line in users_file.readlines():
 				split_line = line.split(';')
-				input(split_line)
 
 				if len(split_line) == 8:            
 					id_user = split_line[0]
@@ -95,7 +110,7 @@ class Bibliotheque:
 					emprunts = split_line[4]
 					grade = split_line[5]
 					compteur_livre = split_line[6]
-					maison = split_line[7]
+					maison = split_line[7][:-1]
 
 					user = User(nom, prenom, mdp)
 					user.emprunts = ast.literal_eval(emprunts)
@@ -116,18 +131,18 @@ class Bibliotheque:
 			for i in self.livre_liste:
 				if isinstance(i, BD):
 					chaine = i.titre + ";" + i.auteur + ";" + i.langue + ";" + i.categorie + ";" + i.genre + ";" + i.ref + ";" + str(i.dispo) + ";" + str(i.retour) + ";" + str(i.couleur) + ";" + i.dessinateur
-					f.write(chaine)
+					f.write(chaine+"\n")
 
 				elif isinstance(i, Livre):
 					chaine = i.titre + ";" + i.auteur + ";" + i.langue + ";" + i.categorie + ";" + i.genre + ";" + i.ref + ";" + str(i.dispo) + ";" + str(i.retour)
-					f.write(chaine)
+					f.write(chaine+"\n")
 			f.close()
 
 	def ExporterUser(self):
 		with open("database/utilisateurs.txt", mode='w', encoding="utf-8") as f:
 			for i in self.user_liste:
 				chaine = i.id + ";" + i.nom + ";" + i.prenom + ";" + i.mdp + ";" + str(i.emprunts) + ";" + i.grade + ";" + str(i.compteur_livre) + ";" + str(i.maison)
-				f.write(chaine)
+				f.write(chaine+"\n")
 			f.close()
 			
 	# ############################ #
