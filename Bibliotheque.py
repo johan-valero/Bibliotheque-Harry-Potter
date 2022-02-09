@@ -1,10 +1,9 @@
-from asyncore import read
-from itertools import chain
-from os import putenv
-from posixpath import split
-from User import User
-from Livre import Livre
+from msilib import Table
+from User import *
+from Livre import *
+from BD import *
 from datetime import date, timedelta
+import ast
 
 class Bibliotheque:
   def __init__(self, nom):
@@ -32,64 +31,75 @@ class Bibliotheque:
   # ########## Import ###########
 
   def ImporterLivre(self):
-    file = open("database/livres.txt", mode='r', encoding="utf-8")
-    for line in file.readlines():
-      split_line = line.split(';')
+    with open("database/livres.txt", mode='r', encoding="utf-8") as file:
+      for line in file.readlines():
+        split_line = line.split(';')
 
-      titre = split_line[0]
-      auteur = split_line[1]
-      langue = split_line[2]
-      categorie = split_line[3]
-      genre = split_line[4]
-      ref = split_line[5]
-      dispo = split_line[6]
-      retour = split_line[7]
+        titre = split_line[0]
+        auteur = split_line[1]
+        langue = split_line[2]
+        categorie = split_line[3]
+        genre = split_line[4]
+        ref = split_line[5]
+        dispo = split_line[6]
+        retour = split_line[7]
 
-      livre = Livre(titre,auteur,langue,genre,categorie,dispo)
+        if dispo == "True":
+          dispo = True
+        elif dispo == "False":
+          dispo = False
 
-      livre.ref = ref
-      livre.retour = retour
+        if retour == "None":
+          retour = None
 
-      if auteur not in self.auteur_liste:
-        self.auteur_liste.append(auteur)
+        livre = Livre(titre,auteur,langue,categorie,genre,dispo)
 
-      if categorie not in self.rayon_liste:
-        self.rayon_liste.append(categorie)
+        livre.ref = ref
+        livre.retour = retour
 
-      self.livre_liste.append(livre)
+        if auteur not in self.auteur_liste:
+          self.auteur_liste.append(auteur)
+
+        if categorie not in self.rayon_liste:
+          self.rayon_liste.append(categorie)
+
+        self.livre_liste.append(livre)
+
 
   def ImporterUser(self):
-    users_file = open("database/utilisateurs.txt", mode='r', encoding="utf-8")
-    for line in users_file.readlines():
-      split_line = line.split(';')
+    with open("database/utilisateurs.txt", mode='r', encoding="utf-8") as users_file:
+      for line in users_file.readlines():
+        split_line = line.split(';')
 
-      id_user = split_line[0]
-      nom = split_line[1]
-      prenom = split_line[2]
-      mdp = split_line[3]
-      emprunts = split_line[4]
-      grade = split_line[5]
+        id_user = split_line[0]
+        nom = split_line[1]
+        prenom = split_line[2]
+        mdp = split_line[3]
+        emprunts = split_line[4]
+        grade = split_line[5]
 
-      user = User(nom, prenom, mdp)
-      user.emprunts = emprunts
-      user.grade = grade
-      user.id = id_user
+        user = User(nom, prenom, mdp)
+        user.emprunts = ast.literal_eval(emprunts)
+        user.grade = grade
+        user.id = id_user
 
-      self.user_liste.append(user)
+        self.user_liste.append(user)
 
   ############### Export ####################
 
   def ExporterLivre(self):    
     with open("database/livres.txt", mode='w', encoding="utf-8") as f:
       for i in self.livre_liste:
-        chaine = i.titre + ";" + i.auteur + ";" + i.langue + ";" + i.genre + ";" + i.categorie + ";" + i.ref + ";" + str(i.dispo) + ";" + str(i.retour) + "\n"
+        chaine = i.titre + ";" + i.auteur + ";" + i.langue + ";" + i.categorie + ";" + i.genre + ";" + i.ref + ";" + str(i.dispo) + ";" + str(i.retour)
         f.write(chaine)
+      f.close()
 
   def ExporterUser(self):
     with open("database/utilisateurs.txt", mode='w', encoding="utf-8") as f:
       for i in self.user_liste:
-        chaine = i.id + ";" + i.nom + ";" + i.prenom + ";" + i.mdp + ";" + str(i.emprunts) + ";" + i.grade + "\n"
+        chaine = i.id + ";" + i.nom + ";" + i.prenom + ";" + i.mdp + ";" + str(i.emprunts) + ";" + i.grade
         f.write(chaine)
+      f.close()
 
   # ############################ #
   #         Rechercher           #

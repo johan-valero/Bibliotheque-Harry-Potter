@@ -1,0 +1,2 @@
+Harry Potter 1;J.K Rowling;Français;Fantastique;Roman;HJ135203;True;None
+Assassin Royal 1;R Hobb;Anglais;Fantastique;Roman;AR1940289;False;2021-02-27

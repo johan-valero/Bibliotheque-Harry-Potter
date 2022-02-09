@@ -13,9 +13,6 @@ poney_fringuant = Bibliotheque("poney_fringuant")
 poney_fringuant.ImporterLivre()
 poney_fringuant.ImporterUser()
 
-# poney_fringuant.AfficherDispo()
-# input()
-
 while True:
     # ###### #
     # Menu 1 #
@@ -112,6 +109,7 @@ while True:
                         print("Veuillez renseigner la référence recherché :")
                         recherche = input("> ")
                         resultat = poney_fringuant.RechercherLivreParRef(recherche)
+
                         if resultat.dispo:
                             print("Voulez-vous emprunter :", resultat.titre, "? y/n")
                             check_correct = input("> ")
