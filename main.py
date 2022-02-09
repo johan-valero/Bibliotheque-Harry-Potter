@@ -244,29 +244,7 @@ while True:
 
             # Menu 3 : 3 - Rendre
             elif choix_menu_2 == "3":
-                clear()
-                print("Rendre")
-                if len(user_connecte.emprunts) == 0:
-                    input("Vous n'avez pas d'emprunts en cours")
-                else:
-                    j = 0
-                    for i in user_connecte.emprunts:
-                        j += 1
-                        print(j, "-", poney_fringuant.livre_liste[poney_fringuant.RechercheIndexParRef(i)].titre, "\n")
-
-                    livre_a_rendre = input("Quel livre désirez-vous rendre ? \"exit\" pour quitter\n> ")
-                    while not check_int(livre_a_rendre):
-                        if livre_a_rendre == "exit":
-                            break
-                        else:
-                            print("Je n'ai pas compris")
-                            livre_a_rendre = input("Quel livre désirez-vous rendre ?\n\"exit\" pour quitter\n> ")
-                
-                    if livre_a_rendre != "exit":
-                        livre_a_rendre = int(livre_a_rendre) - 1
-                        user_connecte.RendreLivre(poney_fringuant, user_connecte.emprunts[livre_a_rendre])
-                        input("Vous avez rendu votre livre")
-
+                user_connecte.RendreLivre(poney_fringuant)
 
             # Menu 4 : 4 - Changer mot de passe
             elif choix_menu_2 == "4":

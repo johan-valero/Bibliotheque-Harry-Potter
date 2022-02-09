@@ -29,12 +29,35 @@ class User(Personne):
         
         self.emprunts.append(livre.ref)
     
-    def RendreLivre(self, bibliotheque, livre_ref):
-        bibliotheque.livre_liste[bibliotheque.RechercheIndexParRef(livre_ref)].dispo = True
-        bibliotheque.livre_liste[bibliotheque.RechercheIndexParRef(livre_ref)].retour = None
-        self.compteurLivre += 1
-        self.Grade()
-        self.emprunts.remove(livre_ref)
+    def RendreLivre(self, bibliotheque):
+        self.Clear()
+        print("Rendre")
+        if len(self.emprunts) == 0:
+            input("Vous n'avez pas d'emprunts en cours")
+        else:
+            j = 0
+            for i in self.emprunts:
+                j += 1
+                print(j, "-", bibliotheque.livre_liste[bibliotheque.RechercheIndexParRef(i)].titre, "\n")
+
+            choix_livre_a_rendre = input("Quel livre désirez-vous rendre ? \"exit\" pour quitter\n> ")
+            while not self.Check_int(choix_livre_a_rendre):
+                if choix_livre_a_rendre == "exit":
+                    break
+                else:
+                    print("Je n'ai pas compris")
+                    choix_livre_a_rendre = input("Quel livre désirez-vous rendre ?\n\"exit\" pour quitter\n> ")
+                
+            if choix_livre_a_rendre != "exit":
+                choix_livre_a_rendre = int(choix_livre_a_rendre) - 1
+                livre_a_rendre = self.emprunts[choix_livre_a_rendre]
+
+                bibliotheque.livre_liste[bibliotheque.RechercheIndexParRef(livre_a_rendre)].dispo = True
+                bibliotheque.livre_liste[bibliotheque.RechercheIndexParRef(livre_a_rendre)].retour = None
+                self.compteurLivre += 1
+                self.Grade()
+                self.emprunts.remove(livre_a_rendre)
+                input("Vous avez rendu votre livre")
 
     def Grade(self):
         if self.compteurLivre >= 40:
@@ -46,6 +69,17 @@ class User(Personne):
         else:
             self.grade = "gollum"
 
+    
+    def Check_int(self, data):
+        check = False
+        try:
+            data = int(data)
+        except ValueError:
+            print("Entrée incorrect, veuillez rentrer un nombre")
+        else:
+            check = True
+        finally:
+            return check
     
     def Clear(self):
         print("\033[H\033[J", end="")
