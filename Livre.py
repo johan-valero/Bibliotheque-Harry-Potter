@@ -2,7 +2,7 @@ from datetime import date
 import random
 
 class Livre():
-  def __init__(self, titre, auteur, langue, categorie, genre, dispo):
+  def __init__(self, titre, auteur, langue, categorie, genre, dispo, dotation):
     self.titre = titre
     self.auteur = auteur
     self.langue = langue
@@ -11,6 +11,7 @@ class Livre():
     self.ref = self.RefLivre()
     self.dispo = dispo
     self.retour = None
+    self.dotation = dotation
 
   def AfficherInfo(self):
     print(f"{self.titre}: par {self.auteur} "
@@ -20,6 +21,7 @@ class Livre():
       f"Références : {self.ref}"
       f"Disponibilité : {self.dispo}"
       f"Retour : {self.retour}"
+      f"dotation : {self.dotation}"
     )
 
   def RefLivre(self):     
@@ -30,4 +32,4 @@ class Livre():
     return ref
 
   def __repr__(self):
-    return str(f"[{self.titre}, {self.auteur}, {self.langue}, {self.categorie}, {self.genre}, {self.ref}, {self.dispo}, {self.retour}]")
+    return str(f"[{self.titre}, {self.auteur}, {self.langue}, {self.categorie}, {self.genre}, {self.ref}, {self.dispo}, {self.retour}, {self.dotation}]")
