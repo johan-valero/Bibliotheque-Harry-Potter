@@ -90,6 +90,7 @@ while True:
             # ###### #
             # Menu 2 #
             # ###### ###################
+            classement_maisons(poney_fringuant, user_connecte)       #
             menu2()                    #
             choix_menu_2 = input("> ") #
             # ##########################

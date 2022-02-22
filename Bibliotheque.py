@@ -12,6 +12,10 @@ class Bibliotheque:
 		self.auteur_liste = []
 		self.livre_liste = []
 		self.user_liste = []
+		self.gryffondor_pts = 0
+		self.poufsouffle_pts = 0
+		self.serdaigle_pts = 0
+		self.serpentard_pts = 0
 
 	def __repr__(self):
 		return str(f"[{self.nom}, Catégories : {len(self.rayon_liste)},Livres : {len(self.livre_liste)}, Utilisateurs : {len(self.user_liste)} ]")

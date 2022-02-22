@@ -19,14 +19,18 @@ def menu1():
           "3 - Quitter l'application\n")
 
 def menu2():
-    clear()
-    # if maison, affichage classement
     print("Que voulez-vous faire ?\n"
           "1 - Afficher emprunts\n"
           "2 - Emprunter\n"
           "3 - Rendre\n"
           "4 - Changer mot de passe\n"
           "5 - Déconnexion\n")
+
+def classement_maisons(bibliotheque, user):
+    clear()
+    if user.maison != None:
+        print("Classement des quatres Maisons :")
+        print(f"\033[31mGryffondor : {bibliotheque.gryffondor_pts}    \033[33mPoufsouffle : {bibliotheque.poufsouffle_pts}    \033[34mSerdaigle : {bibliotheque.serdaigle.pts}  \033[32mSerpentard : {bibliotheque.serpentard.pts}\033[37m\n")
 
 ##################
 # Gestion erreur #
