@@ -97,7 +97,8 @@ while True:
             # Menu 2 : 1 - Afficher emprunts
             if choix_menu_2 == "1":
                 user_connecte.AfficherEmprunts(poney_fringuant)
-        
+
+        # Ajouter menu 1.2 Classement des maisons
         # Menu 2 : 2 - Emprunter
             elif choix_menu_2 == "2":
                 emprunter = True
@@ -264,8 +265,13 @@ while True:
             elif choix_menu_2 == "4":
                 user_connecte.ChangerMdp()
 
-            # Menu 5 : 5 - Déconnexion
+            #Menu 5 : 5 - Afficher les livres
             elif choix_menu_2 == "5":
+                poney_fringuant.AfficherLivresTotaux()
+                input("> ")
+
+            # Menu 5 : 5 - Déconnexion
+            elif choix_menu_2 == "6":
                 clear()
                 input("Déconnexion réussie")
                 connexion = False

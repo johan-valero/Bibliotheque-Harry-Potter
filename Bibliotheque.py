@@ -35,7 +35,7 @@ class Bibliotheque:
 			for line in file.readlines():
 				split_line = line.split(';')
 				
-				if len(split_line) == 8: 
+				if len(split_line) == 9: 
 					titre = split_line[0]
 					auteur = split_line[1]
 					langue = split_line[2]
@@ -43,7 +43,8 @@ class Bibliotheque:
 					genre = split_line[4]
 					ref = split_line[5]
 					dispo = split_line[6]
-					retour = split_line[7][:-1]
+					retour = split_line[7]
+					dotation = split_line[8][:-1]
 
 					if dispo == "True":
 						dispo = True
@@ -53,12 +54,14 @@ class Bibliotheque:
 					if retour == "None":
 						retour = None
 
-					bidule = Livre(titre,auteur,langue,categorie,genre,dispo)
+					dotation = int(dotation)
+					bidule = Livre(titre,auteur,langue,categorie,genre,dispo,dotation)
 
 					bidule.ref = ref
 					bidule.retour = retour
-
-				elif len(split_line) == 10:
+				
+				# BD
+				elif len(split_line) == 11:
 					titre = split_line[0]
 					auteur = split_line[1]
 					langue = split_line[2]
@@ -67,8 +70,9 @@ class Bibliotheque:
 					ref = split_line[5]
 					dispo = split_line[6]
 					retour = split_line[7]
-					couleur = split_line[8]
-					dessinateur = split_line[9][:-1]
+					dotation = split_line[8]
+					couleur = split_line[9]
+					dessinateur = split_line[10][:-1]
 
 					if dispo == "True":
 						dispo = True
@@ -83,7 +87,7 @@ class Bibliotheque:
 					elif couleur == "False":
 						couleur = False
 
-					bidule = BD(titre,auteur,langue,categorie,genre,dispo, couleur, dessinateur)
+					bidule = BD(titre,auteur,langue,categorie,genre,dispo, dotation, couleur, dessinateur)
 
 					bidule.ref = ref
 					bidule.retour = retour		
@@ -130,12 +134,12 @@ class Bibliotheque:
 		with open("database/livres.txt", mode='w', encoding="utf-8") as f:
 			for i in self.livre_liste:
 				if isinstance(i, BD):
-					chaine = i.titre + ";" + i.auteur + ";" + i.langue + ";" + i.categorie + ";" + i.genre + ";" + i.ref + ";" + str(i.dispo) + ";" + str(i.retour) + ";" + str(i.couleur) + ";" + i.dessinateur
-					f.write(chaine+"\n")
+					chaine = i.titre + ";" + i.auteur + ";" + i.langue + ";" + i.categorie + ";" + i.genre + ";" + i.ref + ";" + str(i.dispo) + ";" + str(i.retour) + ";" + str(i.dotation) + ";" + str(i.couleur) + ";" + i.dessinateur 
+					f.write(chaine+"\n") 
 
 				elif isinstance(i, Livre):
-					chaine = i.titre + ";" + i.auteur + ";" + i.langue + ";" + i.categorie + ";" + i.genre + ";" + i.ref + ";" + str(i.dispo) + ";" + str(i.retour)
-					f.write(chaine+"\n")
+					chaine = i.titre + ";" + i.auteur + ";" + i.langue + ";" + i.categorie + ";" + i.genre + ";" + i.ref + ";" + str(i.dispo) + ";" + str(i.retour) + ";" + str(i.dotation)
+					f.write(chaine+"\n") 
 			f.close()
 
 	def ExporterUser(self):
@@ -253,6 +257,8 @@ class Bibliotheque:
 			if l.ref == livre_ref:
 				return j - 1
 
+	#################################################			
+
 	def AfficherLivresTotaux(self):
-		for book in self.livre_liste:
-			return book 
+		for b in self.livre_liste:
+			print(b)
