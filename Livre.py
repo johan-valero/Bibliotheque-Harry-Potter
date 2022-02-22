@@ -21,7 +21,7 @@ class Livre():
       f"Références : {self.ref}"
       f"Disponibilité : {self.dispo}"
       f"Retour : {self.retour}"
-      f"dotation : {self.dotation}"
+      f"Dotation : {self.dotation}"
     )
 
   def RefLivre(self):     
@@ -32,4 +32,13 @@ class Livre():
     return ref
 
   def __repr__(self):
-    return str(f"[{self.titre}, {self.auteur}, {self.langue}, {self.categorie}, {self.genre}, {self.ref}, {self.dispo}, {self.retour}, {self.dotation}]")
+    return str(f"Titre : {self.titre}\n" 
+      f"Auteur : {self.auteur}\n"
+      f"Langue : {self.langue}\n"
+      f"Catégories : {self.categorie}\n"
+      f"Genre : {self.genre}\n"
+      f"Références : {self.ref}\n"
+      f"Disponibilité : {self.dispo}\n"
+      f"Retour : {self.retour}\n"
+      f"Dotation : {self.dotation}\n"
+    )

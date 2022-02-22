@@ -25,7 +25,8 @@ def menu2():
           "2 - Emprunter\n"
           "3 - Rendre\n"
           "4 - Changer mot de passe\n"
-          "5 - Déconnexion\n")
+          "5 - Afficher les livres\n"
+          "6 - Déconnexion\n")
 
 ##################
 # Gestion erreur #

@@ -7,7 +7,18 @@ class BD(Livre):
     self.dessinateur = dessinateur
 
   def __repr__(self):
-    return str(f"[{self.titre}, {self.auteur}, {self.langue}, {self.categorie}, {self.genre}, {self.ref}, {self.dispo}, {self.retour}, {self.couleur}, {self.dessinateur}, {self.dotation}]")
+    return str(f"Titre : {self.titre}\n" 
+      f"Auteur : {self.auteur}\n"
+      f"Langue : {self.langue}\n"
+      f"Catégories : {self.categorie}\n"
+      f"Genre : {self.genre}\n"
+      f"Références : {self.ref}\n"
+      f"Disponibilité : {self.dispo}\n"
+      f"Retour : {self.retour}\n"
+      f"Couleur : {self.couleur}\n"
+      f"Dessinateur : {self.dessinateur}\n"
+      f"dotation : {self.dotation}\n"
+    )
 
   def AfficherInfo(self):
     print(f"{self.titre}: par {self.auteur} "
