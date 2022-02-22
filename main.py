@@ -97,8 +97,7 @@ while True:
             # Menu 2 : 1 - Afficher emprunts
             if choix_menu_2 == "1":
                 user_connecte.AfficherEmprunts(poney_fringuant)
-
-        # Ajouter menu 1.2 Classement des maisons
+        
         # Menu 2 : 2 - Emprunter
             elif choix_menu_2 == "2":
                 emprunter = True

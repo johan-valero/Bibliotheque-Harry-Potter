@@ -136,7 +136,7 @@ class User(Personne):
                 self.Clear()
                 print("Entrez votre choix final en toute lettre pour prêter allégeance à votre maison")
                 maison_choisie = input("> ")
-                while not maison_choisie == "Griffondor" and not maison_choisie == "Poufsouffle" and not maison_choisie == "Serdaigle" and not maison_choisie == "Serpentard":
+                while not maison_choisie == "Gryffondor" and not maison_choisie == "Poufsouffle" and not maison_choisie == "Serdaigle" and not maison_choisie == "Serpentard":
                     maison_choisie = input("> ")
                 print("Vous avez choisi :", maison_choisie, ", confirmer ? y/n")
                 print("\033[31mAttention ce choix est définitif !\033[37m")
