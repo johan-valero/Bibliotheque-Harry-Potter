@@ -206,7 +206,16 @@ class User(Personne):
 
                 bibliotheque.livre_liste[bibliotheque.RechercheIndexParRef(livre_a_rendre)].dispo = True
                 bibliotheque.livre_liste[bibliotheque.RechercheIndexParRef(livre_a_rendre)].retour = None
-                self.compteur_livre += int(bibliotheque.livre_liste[bibliotheque.RechercheIndexParRef(livre_a_rendre)].dotation)
+                self.compteur_livre += bibliotheque.livre_liste[bibliotheque.RechercheIndexParRef(livre_a_rendre)].dotation
+                # ajout pts au classement
+                if self.maison == "Gryffondor":
+                    bibliotheque.gryffondor_pts += bibliotheque.livre_liste[bibliotheque.RechercheIndexParRef(livre_a_rendre)].dotation
+                elif self.maison == "Poufsouffle":
+                    bibliotheque.poufsouffle_pts += bibliotheque.livre_liste[bibliotheque.RechercheIndexParRef(livre_a_rendre)].dotation
+                elif self.maison == "Serdaigle":
+                    bibliotheque.serdaigle_pts += bibliotheque.livre_liste[bibliotheque.RechercheIndexParRef(livre_a_rendre)].dotation
+                elif self.maison == "Serpentard":
+                    bibliotheque.serpentard_pts += bibliotheque.livre_liste[bibliotheque.RechercheIndexParRef(livre_a_rendre)].dotation
                 self.emprunts.remove(livre_a_rendre)
                 input("Vous avez rendu votre livre")
                 self.Grade()
