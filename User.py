@@ -151,14 +151,14 @@ class User(Personne):
         
     
     def Grade(self):
-        if self.compteur_livre == 5 and self.grade == "Moldu":
+        if self.compteur_livre >= 5 and self.grade == "Moldu":
             self.grade = "Apprenti Sorcier"
             self.ChoisirMaison()
 
-        elif self.compteur_livre == 10 and self.grade == "Apprenti Sorcier":
+        elif self.compteur_livre >= 10 and self.grade == "Apprenti Sorcier":
             self.grade = "Sorcier"
 
-        elif self.compteur_livre == 40 and self.grade == "Sorcier":
+        elif self.compteur_livre >= 40 and self.grade == "Sorcier":
             self.grade = "Auror"
     
     # Emprunter
@@ -200,13 +200,13 @@ class User(Personne):
                     print("Je n'ai pas compris")
                     choix_livre_a_rendre = input("Quel livre désirez-vous rendre ?\n\"exit\" pour quitter\n> ")
                 
-            if choix_livre_a_rendre != "exit":
+            if choix_livre_a_rendre != "exit": # Livre est rendu 
                 choix_livre_a_rendre = int(choix_livre_a_rendre) - 1
                 livre_a_rendre = self.emprunts[choix_livre_a_rendre]
 
                 bibliotheque.livre_liste[bibliotheque.RechercheIndexParRef(livre_a_rendre)].dispo = True
                 bibliotheque.livre_liste[bibliotheque.RechercheIndexParRef(livre_a_rendre)].retour = None
-                self.compteur_livre += 1
+                self.compteur_livre += int(bibliotheque.livre_liste[bibliotheque.RechercheIndexParRef(livre_a_rendre)].dotation)
                 self.emprunts.remove(livre_a_rendre)
                 input("Vous avez rendu votre livre")
                 self.Grade()
