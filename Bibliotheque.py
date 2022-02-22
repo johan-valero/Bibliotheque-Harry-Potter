@@ -63,6 +63,14 @@ class Bibliotheque:
 
 					bidule.ref = ref
 					bidule.retour = retour
+
+					if auteur not in self.auteur_liste:
+						self.auteur_liste.append(auteur)
+
+					if categorie not in self.rayon_liste:
+						self.rayon_liste.append(categorie)
+
+					self.livre_liste.append(bidule)
 				
 				# BD
 				elif len(split_line) == 11:
@@ -90,19 +98,20 @@ class Bibliotheque:
 						couleur = True
 					elif couleur == "False":
 						couleur = False
-
+					
+					dotation = int(dotation)
 					bidule = BD(titre,auteur,langue,categorie,genre,dispo, dotation, couleur, dessinateur)
 
 					bidule.ref = ref
 					bidule.retour = retour		
 
-				if auteur not in self.auteur_liste:
-					self.auteur_liste.append(auteur)
+					if auteur not in self.auteur_liste:
+						self.auteur_liste.append(auteur)
 
-				if categorie not in self.rayon_liste:
-					self.rayon_liste.append(categorie)
+					if categorie not in self.rayon_liste:
+						self.rayon_liste.append(categorie)
 
-				self.livre_liste.append(bidule)
+					self.livre_liste.append(bidule)
 			file.close()
 
 	def ImporterUser(self):
@@ -132,6 +141,22 @@ class Bibliotheque:
 					self.user_liste.append(user)
 			users_file.close()
 
+	def ImportClassement(self):
+		with open("database/classement.txt", mode='r', encoding="utf-8") as classement_file:
+			for line in classement_file.readlines():
+				split_line = line.split(';')
+
+				pts_gryffondor = split_line[0]
+				pts_poufsouffle = split_line[1]
+				pts_serdaigle = split_line[2]
+				pts_serpentard = split_line[3]
+
+				self.gryffondor_pts = int(pts_gryffondor)
+				self.poufsouffle_pts = int(pts_poufsouffle)
+				self.serdaigle_pts = int(pts_serdaigle)
+				self.serdaigle_pts = int(pts_serpentard)
+			classement_file.close()
+
 	############### Export ####################
 
 	def ExporterLivre(self):    
@@ -152,6 +177,13 @@ class Bibliotheque:
 				chaine = i.id + ";" + i.nom + ";" + i.prenom + ";" + i.mdp + ";" + str(i.emprunts) + ";" + i.grade + ";" + str(i.compteur_livre) + ";" + str(i.maison)
 				f.write(chaine+"\n")
 			f.close()
+
+	def ExporterClassement(self):
+		with open("database/classement.txt", mode='w', encoding="utf-8") as f:
+			chaine = str(self.gryffondor_pts) + ";" + str(self.poufsouffle_pts) + ";" + str(self.serdaigle_pts) + ";" + str(self.serpentard_pts)
+			f.write(chaine+"\n")
+			f.close()
+
 			
 	# ############################ #
 	#         Rechercher           #

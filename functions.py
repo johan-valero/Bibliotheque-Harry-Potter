@@ -31,7 +31,7 @@ def classement_maisons(bibliotheque, user):
     clear()
     if user.maison != None:
         print("Classement des quatres Maisons :")
-        print(f"\033[31mGryffondor : {bibliotheque.gryffondor_pts}    \033[33mPoufsouffle : {bibliotheque.poufsouffle_pts}    \033[34mSerdaigle : {bibliotheque.serdaigle.pts}  \033[32mSerpentard : {bibliotheque.serpentard.pts}\033[37m\n")
+        print(f"\033[31mGryffondor : {bibliotheque.gryffondor_pts}    \033[33mPoufsouffle : {bibliotheque.poufsouffle_pts}    \033[34mSerdaigle : {bibliotheque.serdaigle_pts}  \033[32mSerpentard : {bibliotheque.serpentard_pts}\033[37m\n")
 
 ##################
 # Gestion erreur #

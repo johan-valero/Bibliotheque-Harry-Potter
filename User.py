@@ -164,14 +164,12 @@ class User(Personne):
     # Emprunter
     def EmprunterLivre(self, bibliotheque, livre):
         dico_grade = {"Moldu": 1, "Apprenti sorcier": 2, "Sorcier": 3, "Auror": 4}
+        nb_max_emprunts = 1
         for i in dico_grade:
             if self.grade == i:
                 nb_max_emprunts = dico_grade[i]
         
-        if len(self.emprunts) == nb_max_emprunts:
-            input("Vous ne pouvez pas emprunter de livre en plus")
-        
-        elif len(self.emprunts) < nb_max_emprunts:
+        if len(self.emprunts) <= nb_max_emprunts:
             dateDuJour = date.today()
             tempsEmprunt = timedelta(days=7)
             dateRetour = dateDuJour + tempsEmprunt
@@ -179,7 +177,12 @@ class User(Personne):
             bibliotheque.livre_liste[bibliotheque.RechercheIndexParLivre(livre)].retour = dateRetour
             
             self.emprunts.append(livre.ref)
+
+            print("Vous avez emprunté :", livre.titre, "veuillez le rendre avant le :", livre.retour)
     
+        else:
+            input("Vous ne pouvez pas emprunter de livre en plus")
+
     # Rendre
     def RendreLivre(self, bibliotheque):
         self.Clear()

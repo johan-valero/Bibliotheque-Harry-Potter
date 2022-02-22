@@ -155,8 +155,8 @@ while True:
                                 livre_choisi = resultat[choix_resultat - 1]
                                 if livre_choisi.dispo:
                                     user_connecte.EmprunterLivre(poney_fringuant, livre_choisi)
-                                    print("Vous avez emprunté", livre_choisi.titre, 
-                                        "veuillez le rendre avant le", poney_fringuant.livre_liste[poney_fringuant.RechercheIndexParLivre(livre_choisi)].retour)
+                                    #print("Vous avez emprunté", livre_choisi.titre, 
+                                    #    "veuillez le rendre avant le", poney_fringuant.livre_liste[poney_fringuant.RechercheIndexParLivre(livre_choisi)].retour)
                                     input()
                                 else:
                                     print(livre_choisi.titre, "n'est pas disponible à l'emprunt")
