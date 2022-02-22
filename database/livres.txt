@@ -1,3 +1,21 @@
-Harry Potter 1;J.KRowling;Français;Fantastique;Roman;HJ135203;False;2022-02-16;2
-Assassin Royal 1;R Hobb;Anglais;Fantastique;Roman;AR1940289;True;None;3
-Injustice 1;DC;Français;Fantastique;BD;ID104382;False;2022-02-16;4;J Raap;True
+Harry Potter 1;J.KRowling;Français;Fantastique;Roman;HJ135203;False;2022-02-16;5
+Assassin Royal 1;R Hobb;Anglais;Fantastique;Roman;AR1940289;True;None;1
+Injustice 1;DC;Français;Fantastique;BD;ID104382;False;2022-02-16;True;J Raapack;1
+Le Livre des sorts et enchantements vol1 1;M Fauconnette;Français;Science;Manuel;LM157306;True;None;6
+Le Livre des sorts et enchantements vol2 1;M Fauconnette;Français;Science;Manuel;LM080068;True;None;3
+Histoire de la magie 1;B Tourdesac;Français;Historique;Manuel;HB098976;True;None;5
+Magie théorique 1;A Lasornette;Français;Magie;Manuel;MA063955;True;None;3
+Manuel de métamorphose à l'usage des débutants 1;E.G Changé;Français;Science;Manuel;ME078690;True;None;5
+Mille herbes et champignons magique 1;P Augirolle;Français;Science;Manuel;MP196350;True;None;6
+Potions magique 1;A Beaulitron;Français;Chimie;Manuel;PA116289;True;None;3
+Vie et habitat des animaux fantastiques 1;N Dragonneau;Français;Zoologique;Manuel;VD155543;True;None;4
+Forces obscures : comment s'en protéger 1;Q Jentremble;Français;art martiaux;Manuel;FQ101675;True;None;6
+Les animaux fantastiques 1;N Scamander;Français;Zoologique;Manuel;LN034096;True;None;1
+Le Quidditch à travers les âges 1;K Whisp;Français;Historique;Manuel;LK190891;True;None;2
+Flâneries avec le Spectre de la mort 1;G Lockhart;Français;autobiographique;Roman;FG114720;True;None;1
+Vadrouilles avec les goules 1;G Lockhart;Français;autobiographique;Roman;VG107588;True;None;5
+Vacances avec les harpies 1;G Lockhart;Français;autobiographique;Roman;VG021695;True;None;1
+Randonnées avec les trolls 1;G Lockhart;Français;autobiographique;Roman;RG141213;True;None;6
+Voyages avec les vampires 1;G Lockhart;Français;autobiographique;Roman;VG125105;True;None;4
+Promenades avec les loups-garous 1;G Lockhart;Français;autobiographique;Roman;PG001793;True;None;1
+Une année avec le Yéti 1;G Lockhart;Français;autobiographique;Roman;UG124430;True;None;4
