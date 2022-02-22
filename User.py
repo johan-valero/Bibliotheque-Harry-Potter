@@ -70,35 +70,35 @@ class User(Personne):
     def ChoisirMaison(self):
         self.Clear()
         print('''                                    
-                                           &&&&&&&&&&&&&%                                 
-                                         &&&.*&&&/&&&&&&&&&&&&&&@*                        
-                                        %&&&&/ &&.&&&&&&&&&&&&&&&&&&&*                    
-                                       ,&&&&&&  @. *&&&&&((((/,,,..                       
-                                       @&&&&&&&%  &   &&&,                                
-                                   ,@&&&&&&&&&&&&&&&%/&%                                  
-                                  @&&&&&&&&&&&&&&&&&&&                                    
-                                 #&&&&&&&&&&&&&&&&&&&&&,                                  
-                                 &&&&&&&&&&&&&&&&&&&&&&&,                                 
-                               %&&&&&&&&&&&&&&&&&&&&&&&&&/                                
-                             &&&&&&&*     *&&&&&&&&&&&&&&&%                               
-                            ,&&&&&&&&,       &&&&&&&&&&&&&&&.                             
-                             @&&&&&&&&@        &&&&&&&&&&/ /                              
-                             ,&&&&&&&&&&%        %&&&(     @                              
-                              &&&&&&&&&&&&&@#*          *&&&&                             
-                             #&&&&&&&&&&&&&%  &&&&&&&&% (&&&&&                            
-                            ,&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&,                          
-                            @&&&&&&&&&&&&&&&&&%/.          *&&&&#                         
-                           &&&&&&&&&&&&&@(                   (&,&&                        
-                         &&&&&&&&&&&@.      ,(%&&&&&&&&&&&&&&&&* (&#                      
-                        .&&,&&&@,  %&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&       %@&&&&&&&&@   
-                         @&&,*@&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&/        %&  
-                         (&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&%.            ,&/  
-                         %&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&@*          ,%&&@(.      
-     #&&&&&&&&&&&&@@&&@&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&@     **@@@&%.               
-  &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&#,                                 
- &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&@%*                                          
-   .@&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&@%*                                                  
-            ,(@@@@@@@@@@((.''')
+                                                &&&&&&&&&&&&&%                                 
+                                                &&&.*&&&/&&&&&&&&&&&&&&@*                        
+                                                %&&&&/ &&.&&&&&&&&&&&&&&&&&&&*                    
+                                            ,&&&&&&  @. *&&&&&((((/,,,..                       
+                                            @&&&&&&&%  &   &&&,                                
+                                        ,@&&&&&&&&&&&&&&&%/&%                                  
+                                        @&&&&&&&&&&&&&&&&&&&                                    
+                                        #&&&&&&&&&&&&&&&&&&&&&,                                  
+                                        &&&&&&&&&&&&&&&&&&&&&&&,                                 
+                                    %&&&&&&&&&&&&&&&&&&&&&&&&&/                                
+                                    &&&&&&&*     *&&&&&&&&&&&&&&&%                               
+                                    ,&&&&&&&&,       &&&&&&&&&&&&&&&.                             
+                                    @&&&&&&&&@        &&&&&&&&&&/ /                              
+                                    ,&&&&&&&&&&%        %&&&(     @                              
+                                    &&&&&&&&&&&&&@#*          *&&&&                             
+                                    #&&&&&&&&&&&&&%  &&&&&&&&% (&&&&&                            
+                                    ,&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&,                          
+                                    @&&&&&&&&&&&&&&&&&%/.          *&&&&#                         
+                                &&&&&&&&&&&&&@(                   (&,&&                        
+                                &&&&&&&&&&&@.      ,(%&&&&&&&&&&&&&&&&* (&#                      
+                                .&&,&&&@,  %&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&       %@&&&&&&&&@   
+                                @&&,*@&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&/        %&  
+                                (&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&%.            ,&/  
+                                %&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&@*          ,%&&@(.      
+            #&&&&&&&&&&&&@@&&@&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&@     **@@@&%.               
+        &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&#,                                 
+        &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&@%*                                          
+        .@&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&@%*                                                  
+                    ,(@@@@@@@@@@((.''')
         print("Mais vous avez des pouvoirs magiques ?!\n"
               "Vos lectures vous ont permi de devenir Apprenti Sorcier !\n"
               "En tant que tel, vous vous devez de choisir une maison !")
@@ -106,7 +106,10 @@ class User(Personne):
         continuer = True
         while continuer:
             print("Quelle maison vous intéresse ?")
-            # Affichage des ASCII Blason
+            print("1. Gryffondor a été fondée par Godric Gryffondor. Ses couleurs sont le rouge et l'or et son emblème est le lion. Elle valorise le courage, la hardiesse, la force, la bravoure et la détermination")                                          
+            print("2. Fondée par Helga Poufsouffle, Poufsouffle est représentée par un blaireau et ses couleurs sont le jaune et le noir. On trouve parmi les nombreuses qualités des Poufsouffle la loyauté, la patience, le goût du travail acharné, l'honnêteté et la tolérance.")
+            print("3. C'est Rowena Serdaigle qui a fondé la maison Serdaigle. Représentée par un aigle, ses couleurs sont le bleu et le bronze. L'intelligence, la sagesse, la créativité, l'originalité et la curiosité font partie des valeurs les plus importantes de cette maison.")
+            print("4. Serpentard a été fondée par Salazar Serpentard. Son emblème, le serpent, rend hommage à ses dons de Fourchelang et ses couleurs sont le vert et l'argent. Serpentard valorise la grandeur, la ruse, l'ambition et la fierté.")
             choix_maison = input("> ")
             if choix_maison == "1":
                 self.Clear()

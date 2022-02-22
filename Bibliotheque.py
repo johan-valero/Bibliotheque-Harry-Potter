@@ -253,5 +253,6 @@ class Bibliotheque:
 			if l.ref == livre_ref:
 				return j - 1
 
-
-	
+	def AfficherLivresTotaux(self):
+		for book in self.livre_liste:
+			return book 
