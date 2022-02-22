@@ -20,6 +20,7 @@ def menu1():
 
 def menu2():
     clear()
+    # if maison, affichage classement
     print("Que voulez-vous faire ?\n"
           "1 - Afficher emprunts\n"
           "2 - Emprunter\n"
