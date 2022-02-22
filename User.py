@@ -151,14 +151,14 @@ class User(Personne):
         
     
     def Grade(self):
-        if self.compteur_livre == 5 and self.grade == "Moldu":
+        if self.compteur_livre >= 5 and self.grade == "Moldu":
             self.grade = "Apprenti Sorcier"
             self.ChoisirMaison()
 
-        elif self.compteur_livre == 10 and self.grade == "Apprenti Sorcier":
+        elif self.compteur_livre >= 10 and self.grade == "Apprenti Sorcier":
             self.grade = "Sorcier"
 
-        elif self.compteur_livre == 40 and self.grade == "Sorcier":
+        elif self.compteur_livre >= 40 and self.grade == "Sorcier":
             self.grade = "Auror"
     
     # Emprunter

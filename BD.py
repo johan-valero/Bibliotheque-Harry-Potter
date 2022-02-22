@@ -1,7 +1,7 @@
 from Livre import Livre
 
 class BD(Livre):
-  def __init__(self, titre, auteur, langue, categorie, genre, dispo, couleur, dessinateur,dotation):
+  def __init__(self, titre, auteur, langue, categorie, genre, dispo, dotation, couleur, dessinateur):
     super().__init__(titre, auteur, langue, categorie, genre, dispo, dotation)
     self.couleur = couleur
     self.dessinateur = dessinateur

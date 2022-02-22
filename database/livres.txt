@@ -1,3 +1,3 @@
 Harry Potter 1;J.KRowling;Français;Fantastique;Roman;HJ135203;False;2022-02-16;2
 Assassin Royal 1;R Hobb;Anglais;Fantastique;Roman;AR1940289;True;None;3
-Injustice 1;DC;Français;Fantastique;BD;ID104382;False;2022-02-16;True;J Raapack;4
+Injustice 1;DC;Français;Fantastique;BD;ID104382;False;2022-02-16;4;J Raap;True
