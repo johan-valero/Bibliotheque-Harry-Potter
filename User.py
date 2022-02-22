@@ -105,24 +105,33 @@ class User(Personne):
         input()
         continuer = True
         while continuer:
-            print("Quelle maison vous intéresse ?")
-            print("1. Gryffondor a été fondée par Godric Gryffondor. Ses couleurs sont le rouge et l'or et son emblème est le lion. Elle valorise le courage, la hardiesse, la force, la bravoure et la détermination")                                          
-            print("2. Fondée par Helga Poufsouffle, Poufsouffle est représentée par un blaireau et ses couleurs sont le jaune et le noir. On trouve parmi les nombreuses qualités des Poufsouffle la loyauté, la patience, le goût du travail acharné, l'honnêteté et la tolérance.")
-            print("3. C'est Rowena Serdaigle qui a fondé la maison Serdaigle. Représentée par un aigle, ses couleurs sont le bleu et le bronze. L'intelligence, la sagesse, la créativité, l'originalité et la curiosité font partie des valeurs les plus importantes de cette maison.")
-            print("4. Serpentard a été fondée par Salazar Serpentard. Son emblème, le serpent, rend hommage à ses dons de Fourchelang et ses couleurs sont le vert et l'argent. Serpentard valorise la grandeur, la ruse, l'ambition et la fierté.")
+            print("Quelle maison vous intéresse ?")                                      
+            print("Appuyer sur 1 pour obtenir plus d'informations sur Gryffondor")
+            print("Appuyer sur 2 pour obtenir plus d'informations sur Poufsoufle")
+            print("Appuyer sur 3 pour obtenir plus d'informations sur Serdaigle")
+            print("Appuyer sur 4 pour obtenir plus d'informations sur Serpentard")
+            print("Appuyer sur 5 pour valider votre choix de maison")            
             choix_maison = input("> ")
             if choix_maison == "1":
                 self.Clear()
                 input("Gryffondor")
+                print("Gryffondor a été fondée par Godric Gryffondor. Ses couleurs sont le rouge et l'or et son emblème est le lion. Elle valorise le courage, la hardiesse, la force, la bravoure et la détermination")
+                input("")
             elif choix_maison == "2":
                 self.Clear()
                 input("Poufsouffle")
+                print("Fondée par Helga Poufsouffle, Poufsouffle est représentée par un blaireau et ses couleurs sont le jaune et le noir. On trouve parmi les nombreuses qualités des Poufsouffle la loyauté, la patience, le goût du travail acharné, l'honnêteté et la tolérance.")
+                input("")
             elif choix_maison == "3":
                 self.Clear()
                 input("Serdaigle")
+                print("C'est Rowena Serdaigle qui a fondé la maison Serdaigle. Représentée par un aigle, ses couleurs sont le bleu et le bronze. L'intelligence, la sagesse, la créativité, l'originalité et la curiosité font partie des valeurs les plus importantes de cette maison.")
+                input("")
             elif choix_maison == "4":
                 self.Clear()
                 input("Serpentard")
+                print("Serpentard a été fondée par Salazar Serpentard. Son emblème, le serpent, rend hommage à ses dons de Fourchelang et ses couleurs sont le vert et l'argent. Serpentard valorise la grandeur, la ruse, l'ambition et la fierté.")
+                input("")
             elif choix_maison == "5":
                 self.Clear()
                 print("Entrez votre choix final en toute lettre pour prêter allégeance à votre maison")

@@ -43,7 +43,6 @@ input("------------------------------------------------\n")
 
 poney_fringuant = Bibliotheque("poney_fringuant")
 poney_fringuant.ImporterLivre()
-poney_fringuant.AfficherLivresTotaux()
 poney_fringuant.ImporterUser()
 
 while True:

@@ -1,3 +1,3 @@
-N.Teddy;Nozet;Teddy;12345;[];Moldu;5;None
+N.Teddy;Nozet;Teddy;12345;[];Moldu;4;None
 z.z;z;z;12345;['HJ135203'];Moldu;0;None
 a.a;a;a;12345;['ID104382'];Moldu;0;None
