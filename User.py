@@ -200,13 +200,13 @@ class User(Personne):
                     print("Je n'ai pas compris")
                     choix_livre_a_rendre = input("Quel livre désirez-vous rendre ?\n\"exit\" pour quitter\n> ")
                 
-            if choix_livre_a_rendre != "exit":
+            if choix_livre_a_rendre != "exit": # Livre est rendu 
                 choix_livre_a_rendre = int(choix_livre_a_rendre) - 1
                 livre_a_rendre = self.emprunts[choix_livre_a_rendre]
 
                 bibliotheque.livre_liste[bibliotheque.RechercheIndexParRef(livre_a_rendre)].dispo = True
                 bibliotheque.livre_liste[bibliotheque.RechercheIndexParRef(livre_a_rendre)].retour = None
-                self.compteur_livre += 1
+                self.compteur_livre += int(bibliotheque.livre_liste[bibliotheque.RechercheIndexParRef(livre_a_rendre)].dotation)
                 self.emprunts.remove(livre_a_rendre)
                 input("Vous avez rendu votre livre")
                 self.Grade()
