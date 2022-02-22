@@ -89,11 +89,11 @@ while True:
         while connexion:
             # ###### #
             # Menu 2 #
-            # ###### ###################
+            # ###### #################################################
             classement_maisons(poney_fringuant, user_connecte)       #
-            menu2()                    #
-            choix_menu_2 = input("> ") #
-            # ##########################
+            menu2()                                                  #
+            choix_menu_2 = input("> ")                               #
+            # ########################################################
 
             # Menu 2 : 1 - Afficher emprunts
             if choix_menu_2 == "1":
