@@ -1,4 +1,4 @@
-                                                    # ============== TODO LISTE ==============
+                                                    # ============== TODO LIST ==============
 
 # TODO 1: Les recherches de livres ne donnent pas droit à l’erreur (Pas de faute ou d’oublies de       majuscules). 
 # TODO 2: La prolongation d’un emprunt est limité uniquement à 7 jours et se fait sans limitation (On peut prolonger à volonté).
@@ -52,7 +52,7 @@
 # TODO 41: Rechercher par Titre doit être revu en retirant la liste 
 # TODO 42: Modifier Catégorie et genre
 # TODO 43: Connexion direct après création de compte 
-# TODO 44:Mettre les points des maisons dans un dico 
+# TODO 44: Mettre les points des maisons dans un dico 
 # TODO 45: Revoir affichage résultat recherche 
 # TODO 46: Afficher les livres lors des emprunts (dispo en vert , non dispo en rouge)
 # TODO 47: Améliorer affichage du château au début du main 
