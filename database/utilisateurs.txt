@@ -1,3 +1,5 @@
 N.Teddy;Nozet;Teddy;12345;[];Apprenti Sorcier;7;Gryffondor
 z.z;z;z;12345;['HJ135203'];Moldu;0;None
 a.a;a;a;12345;['ID104382'];Moldu;0;None
+p.maxime;przybylo;maxime;Azerty77!;['AR1940289'];Apprenti Sorcier;6;Poufsouffle
+p.max;prz;max;Azert;['LN034096', 'HB098976'];Moldu;0;None

@@ -53,18 +53,18 @@ def check_int(data):
 def check_user(bibliotheque, identifiant):
     check = False
     for i in bibliotheque.user_liste:
-        if i.nom == identifiant:
+        if i.id == identifiant:
             check = True
     return check
 
 def check_user_mdp(bibliotheque, identifiant, mdp):
     check = False
     for i in bibliotheque.user_liste:
-        if i.nom == identifiant and i.mdp == mdp:
+        if i.id == identifiant and i.mdp == mdp:
             check = True
     return check
 
 def recup_user(bibliotheque, identifiant, mdp):
     for i in bibliotheque.user_liste:
-        if i.nom == identifiant and i.mdp == mdp:
+        if i.id == identifiant and i.mdp == mdp:
             return i

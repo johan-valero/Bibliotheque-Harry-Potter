@@ -149,7 +149,7 @@ class Bibliotheque:
 				pts_gryffondor = split_line[0]
 				pts_poufsouffle = split_line[1]
 				pts_serdaigle = split_line[2]
-				pts_serpentard = split_line[3]
+				pts_serpentard = split_line[3][:-1]
 
 				self.gryffondor_pts = int(pts_gryffondor)
 				self.poufsouffle_pts = int(pts_poufsouffle)
@@ -201,7 +201,7 @@ class Bibliotheque:
 		livres_trouves = []
 
 		for livre in self.livre_liste:
-			if livre.titre == titre:
+			if titre.lowercase() in livre.titre.lowercase():
 				livres_trouves.append(livre)
 
 		if len(livres_trouves) == 0:

@@ -44,6 +44,7 @@ input("------------------------------------------------\n")
 poney_fringuant = Bibliotheque("poney_fringuant")
 poney_fringuant.ImporterLivre()
 poney_fringuant.ImporterUser()
+poney_fringuant.ImportClassement()
 
 while True:
     # ###### #
@@ -292,18 +293,21 @@ while True:
         user = User(nom, prenom, mdp)
         poney_fringuant.user_liste.append(user)
         input("Votre compte a été crée avec succès !")
+        print("N'oubliez pas vos identifiants :", user.id)
+        input()
 
     # Menu 1 : 3 - quitter Application
     elif choix_menu_1 == "3":
         poney_fringuant.ExporterLivre()
         poney_fringuant.ExporterUser()
+        poney_fringuant.ExporterClassement()
         input("Bonne journée !")
         print(''' 
    _____
   /     |
 /- (*) (*)
 |/\.  _>/\|
-    \__/    |
+    \__/   \/
    _| |_   \-/
   /|\__|\  //
  |/|   |\\//

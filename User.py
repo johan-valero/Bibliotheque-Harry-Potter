@@ -107,7 +107,7 @@ class User(Personne):
         while continuer:
             print("Quelle maison vous intéresse ?")                                      
             print("Appuyer sur 1 pour obtenir plus d'informations sur Gryffondor")
-            print("Appuyer sur 2 pour obtenir plus d'informations sur Poufsoufle")
+            print("Appuyer sur 2 pour obtenir plus d'informations sur Poufsouffle")
             print("Appuyer sur 3 pour obtenir plus d'informations sur Serdaigle")
             print("Appuyer sur 4 pour obtenir plus d'informations sur Serpentard")
             print("Appuyer sur 5 pour valider votre choix de maison")            
