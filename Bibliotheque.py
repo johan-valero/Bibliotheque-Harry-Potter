@@ -257,7 +257,6 @@ class Bibliotheque:
 		livres_trouves = []
 
 		for livre in self.livre_liste:
-			print("langue", livre.langue)
 			if livre.langue == langue:
 				livres_trouves.append(livre)
 

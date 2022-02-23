@@ -1,6 +1,11 @@
 from datetime import date
 import random
 
+# TODO: Mettre attribut dispo à la fin pour le rendre optionnel (dispo=True)
+# ! Attention : Grosse modifs en perspective notament sur :
+# ! toute création de livre
+# ! dans l'import et l'export
+
 class Livre():
   def __init__(self, titre, auteur, langue, categorie, genre, dispo, dotation):
     self.titre = titre

@@ -5,6 +5,12 @@ from Personne import *
 from User import *
 from functions import *
 
+# ! Revoir les imports fichiers de tous les fichiers pour supprimer redondance clear() et check(int)
+# ! Finir de factoriser le main.py : displays, start et exit, Emprunter, Rechercher doivent être déplacés
+# TODO: Revoir repr de toutes les classes
+
+# TODO: créer fonction display_start() dans function.py qui affiche l'ASCII
+
 print("------------------------------------------------\n"
       "Bienvenue sur la bibliothèque de Poudlard !")
 print('''                                                                                                           
@@ -41,6 +47,8 @@ print('''
 ''')      
 input("------------------------------------------------\n")
 
+# TODO: Créer fonction start() pour tous les imports présent et futur du start
+
 poney_fringuant = Bibliotheque("poney_fringuant")
 poney_fringuant.ImporterLivre()
 poney_fringuant.ImporterUser()
@@ -54,6 +62,9 @@ while True:
     choix_menu_1 = input("> ")          #
     # ###################################
     
+# TODO: Déplacer identification dans méthode de classe (voir laquelle)
+# ! attention pb secu, possibilité de déduire l'existence d'un compte
+
     # Menu 1 : 1 - identification
     if choix_menu_1 == "1":
         identification = True
@@ -99,6 +110,10 @@ while True:
             # Menu 2 : 1 - Afficher emprunts
             if choix_menu_2 == "1":
                 user_connecte.AfficherEmprunts(poney_fringuant)
+
+# TODO: Déplacer Emprunter dans classe User
+# TODO: Ajout regex + lowercase + str in chaineStr pour élargir résultat recherche
+# TODO: Mettre en place une meilleure visibilité de la diponibilité d'un livre (couleur)
 
         # Ajouter menu 1.2 Classement des maisons
         # Menu 2 : 2 - Emprunter
@@ -278,6 +293,8 @@ while True:
                 input("Déconnexion réussie")
                 connexion = False
 
+# TODO: Déplacer inscription dans classe Bibliotheque
+
     # Menu 1 : 2 - inscription
     elif choix_menu_1 == "2":
         clear()
@@ -295,6 +312,9 @@ while True:
         input("Votre compte a été crée avec succès !")
         print("N'oubliez pas vos identifiants :", user.id)
         input()
+
+# TODO: Créer fonction exit() pour tout les exports présents et futur du exit()
+# TODO: Déplacer Dobby dans une fonction display_dobby()
 
     # Menu 1 : 3 - quitter Application
     elif choix_menu_1 == "3":
