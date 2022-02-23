@@ -54,6 +54,8 @@ poney_fringuant.ImporterLivre()
 poney_fringuant.ImporterUser()
 poney_fringuant.ImportClassement()
 
+# TODO: Ajouter connexion possible après la création d'un compte
+
 while True:
     # ###### #
     # Menu 1 #
@@ -63,7 +65,6 @@ while True:
     # ###################################
     
 # TODO: Déplacer identification dans méthode de classe (voir laquelle)
-# ! attention pb secu, possibilité de déduire l'existence d'un compte
 
     # Menu 1 : 1 - identification
     if choix_menu_1 == "1":
@@ -81,6 +82,8 @@ while True:
                 identification = False
                 break
             
+# ! attention pb secu, possibilité de déduire l'existence d'un compte
+
             if check_user(poney_fringuant, identifiant):
                 mdp = input("Veuillez rentrer votre mot de passe :\n> ")
                 if check_user_mdp(poney_fringuant, identifiant, mdp):
