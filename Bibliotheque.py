@@ -41,8 +41,8 @@ class Bibliotheque:
 					titre = split_line[0]
 					auteur = split_line[1]
 					langue = split_line[2]
-					categorie = split_line[3]
-					genre = split_line[4]
+					genre = split_line[3]
+					categorie = split_line[4]
 					ref = split_line[5]
 					dispo = split_line[6]
 					retour = split_line[7]
@@ -57,7 +57,7 @@ class Bibliotheque:
 						retour = None
 
 					dotation = int(dotation)
-					bidule = Livre(titre,auteur,langue,categorie,genre,dispo,dotation)
+					bidule = Livre(titre,auteur,langue,genre,categorie,dispo,dotation)
 
 					bidule.ref = ref
 					bidule.retour = retour
@@ -75,8 +75,8 @@ class Bibliotheque:
 					titre = split_line[0]
 					auteur = split_line[1]
 					langue = split_line[2]
-					categorie = split_line[3]
-					genre = split_line[4]
+					genre = split_line[3]
+					categorie = split_line[4]
 					ref = split_line[5]
 					dispo = split_line[6]
 					retour = split_line[7]
@@ -98,7 +98,7 @@ class Bibliotheque:
 						couleur = False
 					
 					dotation = int(dotation)
-					bidule = BD(titre,auteur,langue,categorie,genre,dispo, dotation, couleur, dessinateur)
+					bidule = BD(titre,auteur,langue,genre,categorie,dispo, dotation, couleur, dessinateur)
 
 					bidule.ref = ref
 					bidule.retour = retour		
@@ -161,26 +161,26 @@ class Bibliotheque:
 		with open("database/livres.txt", mode='w', encoding="utf-8") as f:
 			for i in self.livre_liste:
 				if isinstance(i, BD):
-					chaine = i.titre + ";" + i.auteur + ";" + i.langue + ";" + i.categorie + ";" + i.genre + ";" + i.ref + ";" + str(i.dispo) + ";" + str(i.retour) + ";" + str(i.dotation) + ";" + str(i.couleur) + ";" + i.dessinateur 
+					chaine = i.titre + ";" + i.auteur + ";" + i.langue + ";" + i.genre + ";" + i.categorie + ";" + i.ref + ";" + str(i.dispo) + ";" + str(i.retour) + ";" + str(i.dotation) + ";" + str(i.couleur) + ";" + i.dessinateur 
 					f.write(chaine+"\n") 
 
 				elif isinstance(i, Livre):
-					chaine = i.titre + ";" + i.auteur + ";" + i.langue + ";" + i.categorie + ";" + i.genre + ";" + i.ref + ";" + str(i.dispo) + ";" + str(i.retour) + ";" + str(i.dotation)
+					chaine = i.titre + ";" + i.auteur + ";" + i.langue + ";" + i.genre + ";" + i.categorie + ";" + i.ref + ";" + str(i.dispo) + ";" + str(i.retour) + ";" + str(i.dotation)
 					f.write(chaine+"\n") 
-			f.close()
+			
 
 	def ExporterUser(self):
 		with open("database/utilisateurs.txt", mode='w', encoding="utf-8") as f:
 			for i in self.user_liste:
 				chaine = i.id + ";" + i.nom + ";" + i.prenom + ";" + i.mdp + ";" + str(i.emprunts) + ";" + i.grade + ";" + str(i.compteur_livre) + ";" + str(i.maison)
 				f.write(chaine+"\n")
-			f.close()
+			
 
 	def ExporterClassement(self):
 		with open("database/classement.txt", mode='w', encoding="utf-8") as f:
 			chaine = str(self.gryffondor_pts) + ";" + str(self.poufsouffle_pts) + ";" + str(self.serdaigle_pts) + ";" + str(self.serpentard_pts)
 			f.write(chaine+"\n")
-			f.close()
+			
 
 			
 	# ############################ #
