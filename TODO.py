@@ -46,13 +46,13 @@
 # TODO 35: Transfert menu 2 : 2 # TODO 1: Emprunter dans classes la classe User pour réduire le main
 # TODO 36: Mettre inscription User dans le User
 # TODO 37: Ajouter fonction start / quitter pour vider le main 
-# TODO 38: Changer le nom de bibliothèque (Poney_fringant ne fais pas partie de Harry Wesh)
+# ✓TODO 38: Changer le nom de bibliothèque (Poney_fringant ne fais pas partie de Harry Wesh)
 # TODO 39: Revoir REPR et les unifier (nom de l’attribut: Valeur de l’attribut )
 # TODO 40: Rajout de Str pour remplacer afficher 
 # TODO 41: Rechercher par Titre doit être revu en retirant la liste 
-# TODO 42: Modifier Catégorie et genre
+# ✓TODO 42: Modifier Catégorie et genre
 # TODO 43: Connexion direct après création de compte 
 # TODO 44: Mettre les points des maisons dans un dico 
 # TODO 45: Revoir affichage résultat recherche 
 # TODO 46: Afficher les livres lors des emprunts (dispo en vert , non dispo en rouge)
-# TODO 47: Améliorer affichage du château au début du main 
+# ✓TODO 47: Améliorer affichage du château au début du main 
