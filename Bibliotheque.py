@@ -213,38 +213,30 @@ class Bibliotheque:
 	def RechercherLivreParCategorie(self, categorie):
 		livres_trouves = []
 
-		if categorie not in self.rayon_liste:
+		for livre in self.livre_liste:
+			if categorie.lower() in livre.categorie.lower():
+				livres_trouves.append(livre)
+
+		if len(livres_trouves) == 0:
 			print("Aucun livre trouvé")
 
-		else:
-			for livre in self.livre_liste:
-				if categorie.lower() in livre.categorie.lower():
-					livres_trouves.append(livre)
-
-			if len(livres_trouves) == 0:
-				print("Aucun livre trouvé")
-
-			elif len(livres_trouves) > 0:
-				print("Quel livre voulez-vous emprunter ?")
+		elif len(livres_trouves) > 0:
+			print("Quel livre voulez-vous emprunter ?")
 
 		return livres_trouves
 
 	def RechercherLivreParAuteur(self, auteur):
 		livres_trouves = []
 
-		if auteur not in self.auteur_liste:
+		for livre in self.livre_liste:
+			if auteur.lower() in livre.auteur.lower():
+				livres_trouves.append(livre)
+
+		if len(livres_trouves) == 0:
 			print("Aucun livre trouvé")
-
-		else:
-			for livre in self.livre_liste:
-				if auteur.lower() in livre.auteur.lower():
-					livres_trouves.append(livre)
-
-			if len(livres_trouves) == 0:
-				print("Aucun livre trouvé")
-			
-			elif len(livres_trouves) > 0:
-				print("Quel livre voulez-vous emprunter ?")
+		
+		elif len(livres_trouves) > 0:
+			print("Quel livre voulez-vous emprunter ?")
 
 		return livres_trouves
 
