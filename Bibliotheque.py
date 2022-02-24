@@ -192,7 +192,7 @@ class Bibliotheque:
 		livre_trouve = None
 
 		for livre in self.livre_liste:
-			if livre.ref == ref:
+			if livre.ref.lower() == ref.lower():
 				livre_trouve = livre
 
 		return livre_trouve
@@ -201,13 +201,16 @@ class Bibliotheque:
 		livres_trouves = []
 
 		for livre in self.livre_liste:
-			if titre.lowercase() in livre.titre.lowercase():
+			if titre.lower() in livre.titre.lower():
 				livres_trouves.append(livre)
 
 		if len(livres_trouves) == 0:
 			print("Aucun livre trouvé")
 
-		return livres_trouves
+		elif len(livres_trouves) > 0:
+				print("Quel livre voulez-vous emprunter ?")
+
+		return livres_trouves	
 
 	def RechercherLivreParCategorie(self, categorie):
 		livres_trouves = []
@@ -217,11 +220,14 @@ class Bibliotheque:
 
 		else:
 			for livre in self.livre_liste:
-				if livre.categorie == categorie:
+				if categorie.lower() in livre.categorie.lower():
 					livres_trouves.append(livre)
 
 			if len(livres_trouves) == 0:
 				print("Aucun livre trouvé")
+
+			elif len(livres_trouves) > 0:
+				print("Quel livre voulez-vous emprunter ?")
 
 		return livres_trouves
 
@@ -233,11 +239,14 @@ class Bibliotheque:
 
 		else:
 			for livre in self.livre_liste:
-				if livre.auteur == auteur:
+				if auteur.lower() in livre.auteur.lower():
 					livres_trouves.append(livre)
 
 			if len(livres_trouves) == 0:
 				print("Aucun livre trouvé")
+			
+			elif len(livres_trouves) > 0:
+				print("Quel livre voulez-vous emprunter ?")
 
 		return livres_trouves
 
@@ -245,24 +254,31 @@ class Bibliotheque:
 		livres_trouves = []
 		
 		for livre in self.livre_liste:
-			if livre.genre == genre:
+			if genre.lower() in livre.genre.lower():
 				livres_trouves.append(livre)
 
 		if len(livres_trouves) == 0:
 			print("Aucun livre trouvé")
+
+		elif len(livres_trouves) > 0:
+			print("Quel livre voulez-vous emprunter ?")
 
 		return livres_trouves
 
 	def RechercherLivreParLangue(self, langue):
 		livres_trouves = []
 
+		
 		for livre in self.livre_liste:
-			if livre.langue == langue:
+			if langue.lower() in livre.langue.lower():
 				livres_trouves.append(livre)
-
+		
 		if len(livres_trouves) == 0:
 			print("Aucun livre trouvé")
 
+		elif len(livres_trouves) > 0:
+			print("Quel livre voulez-vous emprunter ?")
+	
 		return livres_trouves
 
 	#################################################

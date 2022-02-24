@@ -12,7 +12,7 @@
 # TODO 05: Revoir affichage (Ajouter filtres )
 # TODO 06: Cacher l’affichage par référence pour les Users 
 # TODO 07: Revoir affichage et recherche livre
-# TODO 08: Problème de retour 1 pour RecherchParRef et liste pour les autres
+# ///TODO 08: Problème de retour 1 pour RecherchParRef et liste pour les autres
 # TODO 09: Cacher affichage et recherche par réf du user (accès que pour l’admin)
 
 # Gestion Globale ========================================================================================================

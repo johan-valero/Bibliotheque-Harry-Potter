@@ -150,8 +150,6 @@ while True:
                             check_correct = input("> ")
                             if check_correct == "y":
                                 user_connecte.EmprunterLivre(poney_fringuant, resultat)
-                                print("Vous avez emprunté", resultat.titre, 
-                                    "veuillez le rendre avant le", poney_fringuant.livre_liste[poney_fringuant.RechercheIndexParLivre(resultat)].retour)
                                 input()
                         else:
                             print(resultat.titre, "n'est pas disponible à l'emprunt")
@@ -166,7 +164,6 @@ while True:
                         for i in resultat:
                             j += 1
                             print(j, "-", i.titre)
-                        print("Quel livre voulez-vous emprunter ?")
                         choix_resultat = input("> ")
                         if check_int(choix_resultat):
                             choix_resultat = int(choix_resultat)
@@ -174,8 +171,6 @@ while True:
                                 livre_choisi = resultat[choix_resultat - 1]
                                 if livre_choisi.dispo:
                                     user_connecte.EmprunterLivre(poney_fringuant, livre_choisi)
-                                    #print("Vous avez emprunté", livre_choisi.titre, 
-                                    #    "veuillez le rendre avant le", poney_fringuant.livre_liste[poney_fringuant.RechercheIndexParLivre(livre_choisi)].retour)
                                     input()
                                 else:
                                     print(livre_choisi.titre, "n'est pas disponible à l'emprunt")
@@ -190,7 +185,6 @@ while True:
                         for i in resultat:
                             j += 1
                             print(j, "-", i.titre)
-                        print("Quel livre voulez-vous emprunter ?")
                         choix_resultat = input("> ")
                         if check_int(choix_resultat):
                             choix_resultat = int(choix_resultat)
@@ -198,8 +192,6 @@ while True:
                                 livre_choisi = resultat[choix_resultat - 1]
                                 if livre_choisi.dispo:
                                     user_connecte.EmprunterLivre(poney_fringuant, livre_choisi)
-                                    print("Vous avez emprunté", livre_choisi.titre, 
-                                        "veuillez le rendre avant le", poney_fringuant.livre_liste[poney_fringuant.RechercheIndexParLivre(livre_choisi)].retour)
                                     input()
                                 else:
                                     print(livre_choisi.titre, "n'est pas disponible à l'emprunt")
@@ -214,7 +206,6 @@ while True:
                         for i in resultat:
                             j += 1
                             print(j, "-", i.titre)
-                        print("Quel livre voulez-vous emprunter ?")
                         choix_resultat = input("> ")
                         if check_int(choix_resultat):
                             choix_resultat = int(choix_resultat)
@@ -222,8 +213,6 @@ while True:
                                 livre_choisi = resultat[choix_resultat - 1]
                                 if livre_choisi.dispo:
                                     user_connecte.EmprunterLivre(poney_fringuant, livre_choisi)
-                                    print("Vous avez emprunté", livre_choisi.titre, 
-                                        "veuillez le rendre avant le", poney_fringuant.livre_liste[poney_fringuant.RechercheIndexParLivre(livre_choisi)].retour)
                                     input()
                                 else:
                                     print(livre_choisi.titre, "n'est pas disponible à l'emprunt")
@@ -238,7 +227,6 @@ while True:
                         for i in resultat:
                             j += 1
                             print(j, "-", i.titre)
-                        print("Quel livre voulez-vous emprunter ?")
                         choix_resultat = input("> ")
                         if check_int(choix_resultat):
                             choix_resultat = int(choix_resultat)
@@ -246,8 +234,6 @@ while True:
                                 livre_choisi = resultat[choix_resultat - 1]
                                 if livre_choisi.dispo:
                                     user_connecte.EmprunterLivre(poney_fringuant, livre_choisi)
-                                    print("Vous avez emprunté", livre_choisi.titre, 
-                                        "veuillez le rendre avant le", poney_fringuant.livre_liste[poney_fringuant.RechercheIndexParLivre(livre_choisi)].retour)
                                     input()
                                 else:
                                     print(livre_choisi.titre, "n'est pas disponible à l'emprunt")
@@ -262,7 +248,6 @@ while True:
                         for i in resultat:
                             j += 1
                             print(j, "-", i.titre)
-                        print("Quel livre voulez-vous emprunter ?")
                         choix_resultat = input("> ")
                         if check_int(choix_resultat):
                             choix_resultat = int(choix_resultat)
@@ -270,8 +255,6 @@ while True:
                                 livre_choisi = resultat[choix_resultat - 1]
                                 if livre_choisi.dispo:
                                     user_connecte.EmprunterLivre(poney_fringuant, livre_choisi)
-                                    print("Vous avez emprunté", livre_choisi.titre, 
-                                        "veuillez le rendre avant le", poney_fringuant.livre_liste[poney_fringuant.RechercheIndexParLivre(livre_choisi)].retour)
                                     input()
                                 else:
                                     print(livre_choisi.titre, "n'est pas disponible à l'emprunt")
