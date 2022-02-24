@@ -11,7 +11,7 @@ Potions magique 1;A Beaulitron;Français;Chimie;Manuel;PA116289;True;None;3
 Vie et habitat des animaux fantastiques 1;N Dragonneau;Français;Zoologique;Manuel;VD155543;True;None;4
 Forces obscures : comment s'en protéger 1;Q Jentremble;Français;art martiaux;Manuel;FQ101675;True;None;6
 Les animaux fantastiques 1;N Scamander;Français;Zoologique;Manuel;LN034096;False;2022-03-09;1
-Le Quidditch à travers les âges 1;K Whisp;Français;Historique;Manuel;LK190891;True;None;2
+Le Quidditch à travers les âges 1;K Whisp;Français;Historique;Manuel;LK190891;False;2022-03-10;2
 Flâneries avec le Spectre de la mort 1;G Lockhart;Français;autobiographique;Roman;FG114720;True;None;1
 Vadrouilles avec les goules 1;G Lockhart;Français;autobiographique;Roman;VG107588;True;None;5
 Vacances avec les harpies 1;G Lockhart;Français;autobiographique;Roman;VG021695;True;None;1

@@ -55,6 +55,9 @@ class Bibliotheque:
 
 					if retour == "None":
 						retour = None
+					else:
+						retour = datetime.datetime.strptime(retour, "%Y-%m-%d")
+						retour = datetime.datetime.date(retour)
 
 					dotation = int(dotation)
 					bidule = Livre(titre,auteur,langue,genre,categorie,dispo,dotation)
@@ -91,6 +94,9 @@ class Bibliotheque:
 
 					if retour == "None":
 						retour = None
+					else:
+						retour = datetime.datetime.strptime(retour, "%Y-%m-%d")
+						retour = datetime.datetime.date(retour)
 
 					if couleur == "True":
 						couleur = True
