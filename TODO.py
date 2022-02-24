@@ -30,7 +30,7 @@
 
 # Corrections 
     # Erreurs
-    # TODO 15: Modifier Catégorie et genre
+    # ///TODO 15: Modifier Catégorie et genre
     # ///TODO 16: Changer le nom de bibliothèque (Poney_fringant ne fais pas partie de Harry Wesh)
     # ///TODO 17: Suppression de f.close (sur les with open)
     # TODO 18: Correction de l’attribut .retour de livre et BD (qui n’est pas Date Time) sur l'import / Export
