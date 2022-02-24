@@ -17,8 +17,8 @@
 
 # Gestion Globale ========================================================================================================
 
-# TODO 10: Ajouter Gitignore
-# TODO 11: Revoir import des fichiers pour enlever redondance fonction clear et check# TODO 2:in
+# ///TODO 10: Ajouter Gitignore
+# ///TODO 11: Revoir import des fichiers pour enlever redondance fonction clear et check# TODO 2:in
 
 # Générale ========================================================================================================
 
