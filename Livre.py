@@ -1,4 +1,3 @@
-from datetime import date
 import random
 
 # TODO: Mettre attribut dispo à la fin pour le rendre optionnel (dispo=True)
@@ -7,12 +6,12 @@ import random
 # ! dans l'import et l'export
 
 class Livre():
-  def __init__(self, titre, auteur, langue, categorie, genre, dispo, dotation):
+  def __init__(self, titre, auteur, langue, genre, categorie, dispo, dotation):
     self.titre = titre
     self.auteur = auteur
     self.langue = langue
-    self.categorie = categorie
     self.genre = genre
+    self.categorie = categorie
     self.ref = self.RefLivre()
     self.dispo = dispo
     self.retour = None
@@ -21,8 +20,8 @@ class Livre():
   def AfficherInfo(self):
     print(f"{self.titre}: par {self.auteur} "
       f"Langue : {self.langue}"
-      f"Catégories : {self.categorie}"
       f"Genre : {self.genre}"
+      f"Catégories : {self.categorie}"
       f"Références : {self.ref}"
       f"Disponibilité : {self.dispo}"
       f"Retour : {self.retour}"
@@ -40,8 +39,8 @@ class Livre():
     return str(f"Titre : {self.titre}\n" 
       f"Auteur : {self.auteur}\n"
       f"Langue : {self.langue}\n"
-      f"Catégories : {self.categorie}\n"
       f"Genre : {self.genre}\n"
+      f"Catégories : {self.categorie}\n"
       f"Références : {self.ref}\n"
       f"Disponibilité : {self.dispo}\n"
       f"Retour : {self.retour}\n"

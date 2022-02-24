@@ -1,9 +1,4 @@
-from BD import *
 from Bibliotheque import *
-from Livre import *
-from Personne import *
-from User import *
-from functions import *
 
 # ! Revoir les imports fichiers de tous les fichiers pour supprimer redondance clear() et check(int)
 # ! Finir de factoriser le main.py : displays, start et exit, Emprunter, Rechercher doivent être déplacés
@@ -21,38 +16,38 @@ print('''
                              (                   @@@@@                                    
                              (                   @@@@@                                    
                              /                  @@@@@@@                                   
-                             @                  @@@@@@@/                                  
+                             @                  @@@@@@@                                   
                             @@@            @   @@@@@@@@@   /                              
-                           @@@@@           @    @@@@@@@/   @                              
-                          @@@@@@@          @@   @@@ @@@/   @                             
-                           @   @          @@@@  @@@@@@@/  @@@                             
-                          @@@@@@@        @@@@@@ @@@@@@@/ @@@@                             
+                           @@@@@           @    @@@@@@@    @                              
+                          @@@@@@@          @@   @@@ @@@    @                             
+                           @   @          @@@@  @@@@@@@   @@@                             
+                          @@@@@@@        @@@@@@ @@@@@@@  @@@@                             
                         @@@@@@@@@@@      @@@@@  @@@@@@@@@@@@@@                            
                         @@@@@@@@@@@      @@@@@  @@@@@@@@@@@@@@                            
      /                   @@@@@@@@@       @@@@@@@@@@@@@@@@@@@@@                            
-     @                   @@@@#@@@@       @@@@@@@@@@@@@@@@@@@@@                            
-    /@                   @@@@@@@@@       @@@@@@@@@@@@@@@@@@@@@        .                   
-    @@@                  @@@@@@@@@       @@@@@@@@@@@@@@@@@@@@@       @@,                  
-   @@@@@    @            @@@@@@@@@       @@@@@@@@@@@@@@@@@@@@@@     @@@@,                 
-  %@@@@@*  /@            @@@@@@@@ @  @# @@@@@@@@@@@@@@@@@@@@@@@  @  @@ @,                 
-  %&@ @    @@@           @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                 
+     @                   @@@@@@@@@       @@@@@@@@@@@@@@@@@@@@@                            
+     @                   @@@@@@@@@       @@@@@@@@@@@@@@@@@@@@@        .                   
+    @@@                  @@@@@@@@@       @@@@@@@@@@@@@@@@@@@@@       @@                   
+   @@@@@    @            @@@@@@@@@       @@@@@@@@@@@@@@@@@@@@@@     @@@@                  
+  @@@@@@    @            @@@@@@@@@    @@@@@@@@@@@@@@@@@@@@@@@@@     @@@@                  
+  @@@@@    @@@           @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                 
   @@@@@@@ @@@@@    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                 
- @@@@@@@% @@@@#   &@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                 
- @@@@ @@@@@@@@@   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@          @      
- @@@@@@@@@@@@@@  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@        @@@@     
-  @@@@@@@@@@@@@  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  @@@@@@@@@@@@@@@       @@@@@@@   
-  @@@@@@@@@@@@@  @@@  @@@ @@@ @@@@.@@@ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&@@     &@@@@@@@@@  
-  @@@@@@@@@@@@@  @@@  @@@ @@@ @@@@ @@@ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@      @@@@@@@@  
-  @@@@@@@@@@@@@  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@      @@@@@@@@@@@
+ @@@@@@@@ @@@@@   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                 
+ @@@@@@@@ @@@@@   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@       @      
+ @@@@@@@@@@@@@@  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@     @@@@     
+  @@@@@@@@@@@@@  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  @@@@@@@@@@@@@@@    @@@@@@@   
+  @@@@@@@@@@@@@  @@@  @@@ @@@ @@@@ @@@ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  @@@@@@@@@@  
+  @@@@@@@@@@@@@  @@@  @@@ @@@ @@@@ @@@ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@   @@@@@@@@  
+  @@@@@@@@@@@@@  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@   @@@@@@@@
 ''')      
 input("------------------------------------------------\n")
 
 # TODO: Créer fonction start() pour tous les imports présent et futur du start
 
-poney_fringuant = Bibliotheque("poney_fringuant")
-poney_fringuant.ImporterLivre()
-poney_fringuant.ImporterUser()
-poney_fringuant.ImportClassement()
+hogwarts_library = Bibliotheque("hogwarts_library")
+hogwarts_library.ImporterLivre()
+hogwarts_library.ImporterUser()
+hogwarts_library.ImportClassement()
 
 # TODO: Ajouter connexion possible après la création d'un compte
 
@@ -84,19 +79,19 @@ while True:
             
 # ! attention pb secu, possibilité de déduire l'existence d'un compte
 
-            if check_user(poney_fringuant, identifiant):
+            if check_user(hogwarts_library, identifiant):
                 mdp = input("Veuillez rentrer votre mot de passe :\n> ")
-                if check_user_mdp(poney_fringuant, identifiant, mdp):
+                if check_user_mdp(hogwarts_library, identifiant, mdp):
                     clear()
                     print("-------------------\n"
                           "Connexion réussie !")
                     input("-------------------")
                     connexion = True
                     identification = False
-                    user_connecte = recup_user(poney_fringuant, identifiant, mdp)
+                    user_connecte = recup_user(hogwarts_library, identifiant, mdp)
                     break
                 
-                elif not check_user_mdp(poney_fringuant, identifiant, mdp):
+                elif not check_user_mdp(hogwarts_library, identifiant, mdp):
                     print("Erreur, veuillez réessayer")
                     identification = False
                     break
@@ -105,14 +100,14 @@ while True:
             # ###### #
             # Menu 2 #
             # ###### #################################################
-            classement_maisons(poney_fringuant, user_connecte)       #
+            classement_maisons(hogwarts_library, user_connecte)       #
             menu2()                                                  #
             choix_menu_2 = input("> ")                               #
             # ########################################################
 
             # Menu 2 : 1 - Afficher emprunts
             if choix_menu_2 == "1":
-                user_connecte.AfficherEmprunts(poney_fringuant)
+                user_connecte.AfficherEmprunts(hogwarts_library)
 
 # TODO: Déplacer Emprunter dans classe User
 # TODO: Ajout regex + lowercase + str in chaineStr pour élargir résultat recherche
@@ -143,13 +138,15 @@ while True:
                         clear()
                         print("Veuillez renseigner la référence recherché :")
                         recherche = input("> ")
-                        resultat = poney_fringuant.RechercherLivreParRef(recherche)
+                        resultat = hogwarts_library.RechercherLivreParRef(recherche)
 
                         if resultat.dispo:
                             print("Voulez-vous emprunter :", resultat.titre, "? y/n")
                             check_correct = input("> ")
                             if check_correct == "y":
-                                user_connecte.EmprunterLivre(poney_fringuant, resultat)
+                                user_connecte.EmprunterLivre(hogwarts_library, resultat)
+                                print("Vous avez emprunté", resultat.titre, 
+                                    "veuillez le rendre avant le", hogwarts_library.livre_liste[hogwarts_library.RechercheIndexParLivre(resultat)].retour)
                                 input()
                         else:
                             print(resultat.titre, "n'est pas disponible à l'emprunt")
@@ -159,7 +156,7 @@ while True:
                         clear()
                         print("Veuillez renseigner le titre recherché :")
                         recherche = input("> ")
-                        resultat = poney_fringuant.RechercherLivreParTitre(recherche)
+                        resultat = hogwarts_library.RechercherLivreParTitre(recherche)
                         j = 0
                         for i in resultat:
                             j += 1
@@ -170,7 +167,9 @@ while True:
                             if choix_resultat <= len(resultat):
                                 livre_choisi = resultat[choix_resultat - 1]
                                 if livre_choisi.dispo:
-                                    user_connecte.EmprunterLivre(poney_fringuant, livre_choisi)
+                                    user_connecte.EmprunterLivre(hogwarts_library, livre_choisi)
+                                    #print("Vous avez emprunté", livre_choisi.titre, 
+                                    #    "veuillez le rendre avant le", hogwarts_library.livre_liste[hogwarts_library.RechercheIndexParLivre(livre_choisi)].retour)
                                     input()
                                 else:
                                     print(livre_choisi.titre, "n'est pas disponible à l'emprunt")
@@ -180,7 +179,7 @@ while True:
                         clear()
                         print("Veuillez renseigner la catégorie recherchée :")
                         recherche = input("> ")
-                        resultat = poney_fringuant.RechercherLivreParCategorie(recherche)
+                        resultat = hogwarts_library.RechercherLivreParCategorie(recherche)
                         j = 0
                         for i in resultat:
                             j += 1
@@ -191,7 +190,9 @@ while True:
                             if choix_resultat <= len(resultat):
                                 livre_choisi = resultat[choix_resultat - 1]
                                 if livre_choisi.dispo:
-                                    user_connecte.EmprunterLivre(poney_fringuant, livre_choisi)
+                                    user_connecte.EmprunterLivre(hogwarts_library, livre_choisi)
+                                    print("Vous avez emprunté", livre_choisi.titre, 
+                                        "veuillez le rendre avant le", hogwarts_library.livre_liste[hogwarts_library.RechercheIndexParLivre(livre_choisi)].retour)
                                     input()
                                 else:
                                     print(livre_choisi.titre, "n'est pas disponible à l'emprunt")
@@ -201,7 +202,7 @@ while True:
                         clear()
                         print("Veuillez renseigner l'auteur recherché :")
                         recherche = input("> ")
-                        resultat = poney_fringuant.RechercherLivreParAuteur(recherche)
+                        resultat = hogwarts_library.RechercherLivreParAuteur(recherche)
                         j = 0
                         for i in resultat:
                             j += 1
@@ -212,7 +213,9 @@ while True:
                             if choix_resultat <= len(resultat):
                                 livre_choisi = resultat[choix_resultat - 1]
                                 if livre_choisi.dispo:
-                                    user_connecte.EmprunterLivre(poney_fringuant, livre_choisi)
+                                    user_connecte.EmprunterLivre(hogwarts_library, livre_choisi)
+                                    print("Vous avez emprunté", livre_choisi.titre, 
+                                        "veuillez le rendre avant le", hogwarts_library.livre_liste[hogwarts_library.RechercheIndexParLivre(livre_choisi)].retour)
                                     input()
                                 else:
                                     print(livre_choisi.titre, "n'est pas disponible à l'emprunt")
@@ -222,7 +225,7 @@ while True:
                         clear()
                         print("Veuillez renseigner le genre recherché :")
                         recherche = input("> ")
-                        resultat = poney_fringuant.RechercherLivreParGenre(recherche)
+                        resultat = hogwarts_library.RechercherLivreParGenre(recherche)
                         j = 0
                         for i in resultat:
                             j += 1
@@ -233,7 +236,9 @@ while True:
                             if choix_resultat <= len(resultat):
                                 livre_choisi = resultat[choix_resultat - 1]
                                 if livre_choisi.dispo:
-                                    user_connecte.EmprunterLivre(poney_fringuant, livre_choisi)
+                                    user_connecte.EmprunterLivre(hogwarts_library, livre_choisi)
+                                    print("Vous avez emprunté", livre_choisi.titre, 
+                                        "veuillez le rendre avant le", hogwarts_library.livre_liste[hogwarts_library.RechercheIndexParLivre(livre_choisi)].retour)
                                     input()
                                 else:
                                     print(livre_choisi.titre, "n'est pas disponible à l'emprunt")
@@ -243,7 +248,7 @@ while True:
                         clear()
                         print("Veuillez renseigner la langue recherchée :")
                         recherche = input("> ")
-                        resultat = poney_fringuant.RechercherLivreParLangue(recherche)
+                        resultat = hogwarts_library.RechercherLivreParLangue(recherche)
                         j = 0
                         for i in resultat:
                             j += 1
@@ -254,7 +259,9 @@ while True:
                             if choix_resultat <= len(resultat):
                                 livre_choisi = resultat[choix_resultat - 1]
                                 if livre_choisi.dispo:
-                                    user_connecte.EmprunterLivre(poney_fringuant, livre_choisi)
+                                    user_connecte.EmprunterLivre(hogwarts_library, livre_choisi)
+                                    print("Vous avez emprunté", livre_choisi.titre, 
+                                        "veuillez le rendre avant le", hogwarts_library.livre_liste[hogwarts_library.RechercheIndexParLivre(livre_choisi)].retour)
                                     input()
                                 else:
                                     print(livre_choisi.titre, "n'est pas disponible à l'emprunt")
@@ -262,7 +269,7 @@ while True:
 
             # Menu 3 : 3 - Rendre
             elif choix_menu_2 == "3":
-                user_connecte.RendreLivre(poney_fringuant)
+                user_connecte.RendreLivre(hogwarts_library)
 
             # Menu 4 : 4 - Changer mot de passe
             elif choix_menu_2 == "4":
@@ -270,7 +277,7 @@ while True:
 
             #Menu 5 : 5 - Afficher les livres
             elif choix_menu_2 == "5":
-                poney_fringuant.AfficherLivresTotaux()
+                hogwarts_library.AfficherLivresTotaux()
                 input("> ")
 
             # Menu 5 : 5 - Déconnexion
@@ -294,7 +301,7 @@ while True:
             print("Votre mot de passe est trop court, veuillez entrer un mot de passe de minimum 5 caractères.")
             mdp = input("> ")
         user = User(nom, prenom, mdp)
-        poney_fringuant.user_liste.append(user)
+        hogwarts_library.user_liste.append(user)
         input("Votre compte a été crée avec succès !")
         print("N'oubliez pas vos identifiants :", user.id)
         input()
@@ -304,9 +311,9 @@ while True:
 
     # Menu 1 : 3 - quitter Application
     elif choix_menu_1 == "3":
-        poney_fringuant.ExporterLivre()
-        poney_fringuant.ExporterUser()
-        poney_fringuant.ExporterClassement()
+        hogwarts_library.ExporterLivre()
+        hogwarts_library.ExporterUser()
+        hogwarts_library.ExporterClassement()
         input("Bonne journée !")
         print(''' 
    _____

@@ -1,6 +1,7 @@
 import datetime
 from Personne import Personne
-from Livre import *
+from BD import *
+from functions import *
 from datetime import date, timedelta
 
 class User(Personne):
