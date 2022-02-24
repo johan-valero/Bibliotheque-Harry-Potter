@@ -1,7 +1,5 @@
 from msilib import Table
 from User import *
-from Livre import *
-from BD import *
 from datetime import date, timedelta
 import ast
 

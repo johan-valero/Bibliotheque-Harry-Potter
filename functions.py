@@ -1,10 +1,3 @@
-from BD import *
-from Bibliotheque import *
-from Livre import *
-from Personne import *
-from User import *
-from functions import *
-
 ###########
 # Display #
 ###########

@@ -1,4 +1,3 @@
-from datetime import date
 import random
 
 # TODO: Mettre attribut dispo à la fin pour le rendre optionnel (dispo=True)

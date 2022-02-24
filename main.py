@@ -1,9 +1,4 @@
-from BD import *
 from Bibliotheque import *
-from Livre import *
-from Personne import *
-from User import *
-from functions import *
 
 # ! Revoir les imports fichiers de tous les fichiers pour supprimer redondance clear() et check(int)
 # ! Finir de factoriser le main.py : displays, start et exit, Emprunter, Rechercher doivent être déplacés
