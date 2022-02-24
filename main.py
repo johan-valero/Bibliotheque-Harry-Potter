@@ -145,8 +145,6 @@ while True:
                             check_correct = input("> ")
                             if check_correct == "y":
                                 user_connecte.EmprunterLivre(hogwarts_library, resultat)
-                                print("Vous avez emprunté", resultat.titre, 
-                                    "veuillez le rendre avant le", hogwarts_library.livre_liste[hogwarts_library.RechercheIndexParLivre(resultat)].retour)
                                 input()
                         else:
                             print(resultat.titre, "n'est pas disponible à l'emprunt")
@@ -168,8 +166,6 @@ while True:
                                 livre_choisi = resultat[choix_resultat - 1]
                                 if livre_choisi.dispo:
                                     user_connecte.EmprunterLivre(hogwarts_library, livre_choisi)
-                                    #print("Vous avez emprunté", livre_choisi.titre, 
-                                    #    "veuillez le rendre avant le", hogwarts_library.livre_liste[hogwarts_library.RechercheIndexParLivre(livre_choisi)].retour)
                                     input()
                                 else:
                                     print(livre_choisi.titre, "n'est pas disponible à l'emprunt")
@@ -191,8 +187,6 @@ while True:
                                 livre_choisi = resultat[choix_resultat - 1]
                                 if livre_choisi.dispo:
                                     user_connecte.EmprunterLivre(hogwarts_library, livre_choisi)
-                                    print("Vous avez emprunté", livre_choisi.titre, 
-                                        "veuillez le rendre avant le", hogwarts_library.livre_liste[hogwarts_library.RechercheIndexParLivre(livre_choisi)].retour)
                                     input()
                                 else:
                                     print(livre_choisi.titre, "n'est pas disponible à l'emprunt")
@@ -214,8 +208,6 @@ while True:
                                 livre_choisi = resultat[choix_resultat - 1]
                                 if livre_choisi.dispo:
                                     user_connecte.EmprunterLivre(hogwarts_library, livre_choisi)
-                                    print("Vous avez emprunté", livre_choisi.titre, 
-                                        "veuillez le rendre avant le", hogwarts_library.livre_liste[hogwarts_library.RechercheIndexParLivre(livre_choisi)].retour)
                                     input()
                                 else:
                                     print(livre_choisi.titre, "n'est pas disponible à l'emprunt")
@@ -237,8 +229,6 @@ while True:
                                 livre_choisi = resultat[choix_resultat - 1]
                                 if livre_choisi.dispo:
                                     user_connecte.EmprunterLivre(hogwarts_library, livre_choisi)
-                                    print("Vous avez emprunté", livre_choisi.titre, 
-                                        "veuillez le rendre avant le", hogwarts_library.livre_liste[hogwarts_library.RechercheIndexParLivre(livre_choisi)].retour)
                                     input()
                                 else:
                                     print(livre_choisi.titre, "n'est pas disponible à l'emprunt")
@@ -260,8 +250,6 @@ while True:
                                 livre_choisi = resultat[choix_resultat - 1]
                                 if livre_choisi.dispo:
                                     user_connecte.EmprunterLivre(hogwarts_library, livre_choisi)
-                                    print("Vous avez emprunté", livre_choisi.titre, 
-                                        "veuillez le rendre avant le", hogwarts_library.livre_liste[hogwarts_library.RechercheIndexParLivre(livre_choisi)].retour)
                                     input()
                                 else:
                                     print(livre_choisi.titre, "n'est pas disponible à l'emprunt")
