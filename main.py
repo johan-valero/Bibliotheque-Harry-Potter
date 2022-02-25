@@ -139,16 +139,20 @@ while True:
                         print("Veuillez renseigner la référence recherché :")
                         recherche = input("> ")
                         resultat = hogwarts_library.RechercherLivreParRef(recherche)
-
-                        if resultat.dispo:
-                            print("Voulez-vous emprunter :", resultat.titre, "? y/n")
-                            check_correct = input("> ")
-                            if check_correct == "y":
-                                user_connecte.EmprunterLivre(hogwarts_library, resultat)
+                    
+                        if resultat != None:
+                            if resultat.dispo:
+                                print("Voulez-vous emprunter :", resultat.titre, "? y/n")
+                                check_correct = input("> ")
+                                if check_correct == "y":
+                                    user_connecte.EmprunterLivre(hogwarts_library, resultat)
+                                    input()
+                            else:
+                                print(resultat.titre, "n'est pas disponible à l'emprunt")
                                 input()
                         else:
-                            print(resultat.titre, "n'est pas disponible à l'emprunt")
-                            input()
+                            print("Pas de livre enregistré à cette référence")
+                            input("> ")
 
                     elif choix_recherche == "2":
                         clear()
